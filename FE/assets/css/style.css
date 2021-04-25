@@ -1,0 +1,80 @@
+/* Theme Description :HTML/SCSS
+Author : Hoang Long
+Version : 1.0.0
+*/
+
+/* ================ TABLE OF CONTENT ==================
+1, Setting
+2, Header
+3, Feature
+4, Banner
+5, IT Security
+
+*/
+
+/* ============ 1,Setting ===========*/
+
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+a {
+text-decoration: none;
+}
+
+ul,
+li {
+list-style: none;
+}
+
+.container {
+width: 1170px;
+margin: 0 auto;
+padding: 0 15px;
+}
+
+/* =========== 2,Header ============= */
+
+.header {
+    background : #f46164;
+    border-top:  2px solid #f46164;
+}
+.header .container {
+    display:  flex;
+    justify-content:  space-between;
+    align-items:  center;
+}
+.header .container .header__logo p a{
+    color:  white;
+}
+
+.header .container .header__menu ul {
+    display:  flex;
+    justify-content: space-between;
+    align-items:  center;
+}
+.header .container .header__menu ul li {
+    padding: 10px;
+    height: 40px;
+}
+.header .container .header__menu ul li a{
+    color: white;
+    padding: 20px;
+}
+.header .container .header__menu ul li a:hover{
+    background: white;
+    color: red;
+}
+
+/* ============= 3,Feature ========== */
+.feature{}
+.feature .container .feature__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.feature .container .feature__content .feature__content-space{}
+.feature .container .feature__content .feature__content-search{}
+.feature .container .feature__content .feature__content-shoppingcart{}
