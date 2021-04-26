@@ -1,0 +1,137 @@
+/* Theme Description :HTML/SCSS
+Author : Hoang Long
+Version : 1.0.0
+*/
+/* ================ TABLE OF CONTENT ==================
+1, Header
+2, Feature
+3, Navigation
+4, Slide Product
+5, Catalog
+
+*/
+/* ============ 0, Setting =========== */
+@import url(./mixin.scss);
+.btn {
+  display: inline-block;
+  padding: 8px 15px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  transition: all 0.3s ease-in-out;
+  color: #ffffff !important;
+}
+
+/* ============ 1,Header ===========*/
+.header {
+  background: #f46164;
+  border-top: 2px solid #f46164;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .container .header__logo p a {
+  color: white;
+}
+.header .container .header__menu ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .container .header__menu ul li {
+  padding: 10px;
+  height: 40px;
+}
+.header .container .header__menu ul li a {
+  color: white;
+  padding: 20px;
+}
+.header .container .header__menu ul li a:hover {
+  background: white;
+  color: red;
+}
+
+/* ============ 2,Feature ===========*/
+.feature {
+  padding: 20px 0 20px 0;
+}
+.feature .container .feature__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.feature .container .feature__content .feature__content-logo img {
+  border: 0 none;
+  width: 100px;
+  vertical-align: middle;
+  max-height: 100px;
+  cursor: pointer;
+}
+.feature .container .feature__content .feature__content-search {
+  display: flex;
+  margin-right: 25px;
+}
+.feature .container .feature__content .feature__content-search input {
+  width: 400px;
+  border: 1px solid #dedede;
+  border-radius: 0;
+  color: #454545;
+  height: 40px;
+  padding: 5px;
+}
+.feature .container .feature__content .feature__content-search span .btn-search {
+  background-color: #000;
+  height: 40px;
+  font-size: 14px;
+  border: none;
+}
+
+/* ============ 3,Navigation ===========*/
+.navigation {
+  background: #454545;
+}
+.navigation .container .navigation__menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation .container .navigation__menu ul li {
+  text-align: center;
+  padding: 20px;
+}
+.navigation .container .navigation__menu ul li a {
+  padding: 20px;
+  color: white;
+}
+.navigation .container .navigation__menu ul li a:hover {
+  background: #000;
+  transition: 0.3s all;
+}
+
+/* ============ 4,Slide Product ===========*/
+.slider {
+  max-height: 600px;
+}
+
+/* ============ 5,Catalog ===========*/
+.catalog {
+  margin-top: 20px;
+}
+.catalog .container .catalog__content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.catalog .container .catalog__content .catalog__content-item {
+  width: 33.333%;
+}
+
+/*# sourceMappingURL=style.css.map */
