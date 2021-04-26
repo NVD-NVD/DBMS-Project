@@ -1,0 +1,296 @@
+/* Theme Description :HTML/SCSS
+Author : Hoang Long
+Version : 1.0.0
+*/
+
+/* ================ TABLE OF CONTENT ==================
+1, Header
+2, Feature
+3, Navigation
+4, Slide Product
+5, Catalog
+
+*/
+/* ============ 0, Setting =========== */
+@import "grid";
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff !important;
+}
+@import url(./mixin.scss);
+/* ============ 1,Header ===========*/
+.header {
+    background: #f46164;
+    border-top: 2px solid #f46164;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header__logo {
+            p {
+                a {
+                    color: white;
+                }
+            }
+        }
+
+        .header__menu {
+            ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                li {
+                    padding: 10px;
+                    height: 40px;
+                    a {
+                        color: white;
+                        padding: 20px;
+                        &:hover {
+                            background: white;
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ============ 2,Feature ===========*/
+.feature {
+    padding: 20px 0 20px 0;
+    .container {
+        .feature__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .feature__content-logo {
+                img {
+                    border: 0 none;
+                    width: 100px;
+                    vertical-align: middle;
+                    max-height: 100px;
+                    cursor: pointer;
+                }
+            }
+            .feature__content-search {
+                display: flex;
+                margin-right: 25px;
+                input {
+                    width: 400px;
+                    border: 1px solid #dedede;
+                    border-radius: 0;
+                    color: #454545;
+                    height: 40px;
+                    padding: 5px;
+                }
+                span {
+                    .btn-search {
+                        background-color: #000;
+                        height: 40px;
+                        font-size: 14px;
+                        border: none;
+                        &:hover {
+                            background-color: #f46164;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ============ 3,Navigation ===========*/
+.navigation {
+    background: #454545;
+    .container {
+        .navigation__menu {
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                li {
+                    text-align: center;
+                    padding: 20px;
+                    a {
+                        padding: 20px;
+                        color: white;
+                        font-weight: 500;
+                        &:hover {
+                            background: #f46164;
+                            transition: 0.3s all;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ============ 4,Slide Product ===========*/
+.slider {
+    height: 600px;
+}
+
+/* ============ 5,Catalog ===========*/
+.catalog {
+    margin-top: 20px;
+    .container {
+        .catalog__content {
+            display: flex;
+            flex-wrap: wrap;
+            .catalog__content-item {
+                width: 33.333%;
+                text-align: center;
+                margin-bottom: 20px;
+                .item__img {
+                    a {
+                        img {
+                            max-height: 350px;
+                            width: 275px;
+                        }
+                    }
+                }
+                .item__info {
+                    margin-top: 10px;
+                    .item__info-name {
+                        font-weight: 500;
+                        color: #000;
+                        &:hover {
+                            color: #f46164;
+                        }
+                    }
+                    span {
+                        display: block;
+                        padding: 5px 0 15px 0;
+                        color: #f46164;
+                    }
+                    .btn-add {
+                        padding: 10px 20px;
+                        border: 1px solid red;
+                        border-radius: 4px;
+                        color: #f46164;
+                        &:hover {
+                            color: #ffffff;
+                            background-color: #f46164;
+                            transition: 0.3s all;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ============ 6,Policy ===========*/
+.policy {
+    margin: 20px 0 30px 0;
+    .container {
+        .policy__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .policy__content-item {
+                display: flex;
+                align-items: center;
+                border: 1px #f46164 solid;
+                color: white;
+                font-size: 16px;
+                background-color: #f46164;
+                padding: 20px;
+                i {
+                    font-size: 30px;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+/* ============ 7,Footer ===========*/
+.footer {
+    margin-top: 20px;
+    .container {
+        .footer__content {
+            display: flex;
+            justify-content: space-between;
+            .footer__content-intro {
+                width: 33.3333%;
+                h2 {
+                    margin-bottom: 20px;
+                }
+                ul {
+                    li {
+                        a {
+                            color: #000;
+                            &:hover {
+                                color: #f46164;
+                            }
+                        }
+                        margin-bottom: 20px;
+                        i {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+
+            .footer__content-help {
+                width: 33.3333%;
+                h2 {
+                    margin-bottom: 20px;
+                }
+                ul {
+                    li {
+                        margin-bottom: 20px;
+                        i {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+
+            .footer__content-social {
+                h2 {
+                    margin-bottom: 30px;
+                }
+                ul {
+                    display: flex;
+                    align-items: center;
+                    li {
+                        display: block;
+                        margin-right: 10px;
+                        a {
+                            border: 1px solid #f46164;
+                            border-radius: 4px;
+                            padding: 10px;
+                            background-color: #f46164;
+                            &:hover {
+                                background-color: white;
+                                border: white 1px solid;
+                                transition: 0.3s all;
+                                i {
+                                    color: #f46164;
+                                }
+                            }
+                            i {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
