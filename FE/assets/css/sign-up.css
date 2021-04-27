@@ -169,7 +169,7 @@ img {
 /*--- end reset code ---*/
 
 body {
-    background: url(../images/banner_signin.jpg) no-repeat;
+    background: url(../images/bg.jpg) no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -178,6 +178,7 @@ body {
     -o-background-size: cover;
     font-family: "Raleway", sans-serif;
     font-weight: 300;
+
 }
 h1.w3ls {
     font-size: 50px;
@@ -188,7 +189,7 @@ h1.w3ls {
     text-transform: uppercase;
 }
 .content-w3ls {
-    background-color: #202123;
+    background-color: #000;
     width: 70%;
     margin: 0 auto 50px;
     padding: 0;
@@ -196,7 +197,7 @@ h1.w3ls {
 .content-w3ls .content-agile1 {
     width: 50%;
     float: left;
-    background: url(../images/content_signin.jpg) no-repeat;
+    background: url(../images/login_side.png) no-repeat;
     background-position: center;
     background-size: cover;
     -webkit-background-size: cover;
@@ -308,7 +309,7 @@ input.register {
 }
 input.register:hover {
     color: #fff;
-    background-color: #3970b0;
+    background-color: #cd201f;
 }
 p.wthree {
     font-size: 16px;
