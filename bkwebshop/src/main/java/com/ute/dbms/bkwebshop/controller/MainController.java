@@ -31,13 +31,6 @@ public class MainController {
     public String repuestMenthondName() {
         return "Wellcome project dbms nhom 9";
     }
-    // @GetMapping(value = "/login")         
-    // public Long requestMethodName() {
-    //     User user = userRepository.findByEmail("admin@gmail.com");
-    //     System.out.println(user.getEmail());
-    //     System.out.println(passwordEncoder.upgradeEncoding(user.getPassword()));
-    //     return user.getId();
-    // }
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user){
         User other = userRepository.findByEmail(user.getEmail());
@@ -48,12 +41,6 @@ public class MainController {
         
         return ResponseEntity.ok(user.toString());
     }
-    @GetMapping(value="/info")      
-    public String getMethodName(@RequestBody User user) {
-        
-        return user.toString();
-    }
-    
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody User newUser){
         List<User> users = userRepository.findAll();
@@ -69,6 +56,27 @@ public class MainController {
         userRepository.save(newUser);
 
         return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("SUCCSESS" + newUser.toString());
+    }
+    @PostMapping("/editInfo")
+    public ResponseEntity<?> editInfo(@Valid @RequestBody User user){
+        User other = userRepository.findByEmail(user.getEmail());
+        if(other != null){
+            other.setUserInfo(user.getUserInfo());
+            userRepository.save(other);
+        }
+        else
+            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("cap nhap loi");
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("cap nhap thanh cong");
+    }
+    @PostMapping("/info")
+    public ResponseEntity<?> showInfo(@Valid @RequestBody User user){
+        User other = userRepository.findByEmail(user.getEmail());
+        if(other != null){
+            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(other.toString());
+        }
+        else
+            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("error");
+        
     }
     @DeleteMapping("/delete")
     public ResponseEntity<?> deleteEntity(@RequestBody User user){
