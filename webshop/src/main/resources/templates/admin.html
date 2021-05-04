@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/sass/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/sass/reset.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/sass/adminPage.css}">
+    <title>ADMIN PAGE</title>
+</head>
+
+<body>
+<!-- Start Header -->
+<div th:replace="_header::_header_"></div>
+<!-- End Header -->
+
+<!-- Start Feature -->
+
+<div class="feature">
+    <div class="container">
+        <div class="feature__content">
+            <div class="feature__content-logo">
+                <img src="images/logo-web.jpg" alt="">
+            </div>
+
+            <div class="feature__content-search">
+                <input type="text" placeholder="Tìm kiếm ....">
+                <span class="input-group-btn">
+                            <button class="btn btn-search" title="Search" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </span>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Feature -->
+
+<!-- Start Navigation -->
+
+<div class="navigation">
+    <div class="container">
+        <div class="navigation__menu">
+            <ul>
+                <li><a href="trang-chu.html">TRANG CHỦ</a></li>
+                <li><a href="">ÁO THUN</a></li>
+                <li><a href="">VÁY</a></li>
+                <li><a href="">PHỤ KIỆN</a></li>
+                <li><a href="">LIÊN HỆ</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- End Navigation -->
+
+<!-- Start list Product -->
+    <div class="listProduct">
+        <div class="container my-2">
+        <div class="product">
+            <div class="product-body">
+                <div th:switch="${products}" class="container my-5">
+                    <p class="my-5">
+                        <a th:href="@{/admin/products/add}" class="btn btn-primary"><i
+                                class="fas fa-user-plus ml-2">Add Product</i></a>
+                    </p>
+                    <div class="col-md-10">
+                        <h2 th:case="null">No Product yet!</h2>
+                        <div th:case="*">
+                            <table class="table table-striped table-responsive-md">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Ten SP</th>
+                                    <th>Gia</th>
+                                    <th>Edit</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="product : ${products}">
+                                    <td th:text="${product.productID}"></td>
+                                    <td th:text="${product.productName}"></td>
+                                    <td th:text="${product.price}"></td>
+                                    <td th:text="${product.context}"></td>
+                                    <td><a th:href="@{/products/edit/{id}(id=${product.productID})}"
+                                           class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+<!-- End list Product -->
+
+<hr>
+
+<!-- Start Footer -->
+
+<div class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <div class="footer__content-help">
+                <h2>HỖ TRỢ</h2>
+                <ul>
+                    <li><i class="fas fa-question"></i> Hướng dẫn thanh toán</li>
+                    <li><i class="fas fa-reply"></i> Quy định đổi trả</li>
+                    <li><i class="fas fa-shield-alt"></i> Chính sách bảo mật</li>
+                    <li><i class="fas fa-tshirt"></i> Chính sách bán hàng</li>
+                </ul>
+            </div>
+
+            <div class="footer__content-intro">
+                <h2>GIỚI THIỆU</h2>
+                <ul>
+                    <li><i class="fas fa-map-marker"></i> 1 Võ Văn Ngân, Linh Chiểu, Thủ Đức, Thành phố Hồ Chí Minh
+                    </li>
+                    <li><i class="fas fa-phone-alt"></i> 0903 113 114</li>
+                    <li><i class="fas fa-envelope"></i><a href="">admin@gmail.com</a></li>
+                    <li><i class="fas fa-globe-asia"></i> <a
+                            href="http://127.0.0.1:5500/FE/trang-chu.html">http://127.0.0.1:5500/FE/trang-chu.html</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__content-social">
+                <h2>MẠNG XÃ HỘI</h2>
+                <ul>
+                    <li><a href="facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="instagam.com"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="gmail.com"><i class="fab fa-google"></i></a></li>
+                    <li><a href="youtube.com"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Footer -->
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./js/script.js"></script>
+<script src="./js/owl.carousel.min.js"></script>
+
+</html>

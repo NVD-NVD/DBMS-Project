@@ -28,14 +28,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-        System.out.println(auth.toString());
+
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/register", "/", "/index").permitAll()
-                .antMatchers("/home").hasRole("MEMBER")
+                .antMatchers("/home","/cart").hasAnyRole("MEMBER","ADMIN")
                 .antMatchers("/admin").hasRole("ADMIN")
                 .and()
                 .formLogin()

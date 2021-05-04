@@ -1,9 +1,12 @@
 package com.ute.dbms.webshop.config;
 
 import java.util.HashSet;
+import java.util.List;
 
+import com.ute.dbms.webshop.entity.Product;
 import com.ute.dbms.webshop.entity.Role;
 import com.ute.dbms.webshop.entity.User;
+import com.ute.dbms.webshop.repository.ProductRepository;
 import com.ute.dbms.webshop.repository.RoleRepository;
 import com.ute.dbms.webshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

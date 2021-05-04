@@ -15,21 +15,7 @@
 
 <body>
 <!-- Start Header -->
-    <div class="header">
-        <div class="container">
-            <div class="header__logo">
-                <p><a href="">Hotline: 0903 113 114</a></p>
-            </div>
-            <div class="header__menu">
-                <ul>
-                    <li><a href="#"><i class="fas fa-pen-square"></i> Kiểm tra đơn hàng</a></li>
-                    <li><a th:href="@{/cart}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                    <li><a th:href="@{/login}" methods="GET"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
-                    <li><a th:href="@{/signup}"><i class="fa fa-key"></i> Đăng ký</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <div th:replace="_header::_header_"></div>
     <!-- End Header -->
 
     <!-- Start Feature -->
