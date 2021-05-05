@@ -11,13 +11,13 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false, unique = true)
     private int id;
-    @Column(name = "name", nullable = false, unique = true)
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "price", nullable = false, unique = true)
+    @Column(name = "price", nullable = false)
     private int price;
-    @Column(name = "context", nullable = false, unique = true)
+    @Column(name = "context", nullable = false)
     private String context;
-    @Column(name = "soluong", nullable = false, unique = true)
+    @Column(name = "soluong", nullable = false)
     private int soLuong;
     @Column(name = "imgUrl")
     private String imgurl;

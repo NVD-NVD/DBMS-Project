@@ -25,6 +25,8 @@ public class DataSeedingListener implements CommandLineRunner {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private ProductRepository productRepository;
     @Override
     public void run(String...args) throws Exception{
         // Roles
@@ -57,6 +59,19 @@ public class DataSeedingListener implements CommandLineRunner {
             roles.add(roleRepository.findByRoleName("ROLE_MEMBER"));
             user.setRoles(roles);
             userRepository.save(user);
+        }
+        // Products
+        if(productRepository.findAll() == null){
+            Product product1 = new Product("item1", 350000,"ÁO SƠ MI KHOÁC NGOÀI", 50, "images/products/item_1.jpg");
+            productRepository.save(product1);
+            Product product2 = new Product("item2", 500000,"SET DẠO PHỐ", 50, "images/products/item_2.jpg");
+            productRepository.save(product2);
+            Product product3 = new Product("item3", 250000,"ĐẦM XUÔNG", 50, "images/products/item_3.jpg");
+            productRepository.save(product3);
+            Product product4 = new Product("item4", 250000,"ĐẦM XUÔNG", 50, "images/products/item_4.jpg");
+            productRepository.save(product4);
+            Product product5 = new Product("item5", 250000,"ĐẦM XUÔNG", 50, "images/products/item_5.jpg");
+            productRepository.save(product5);
         }
     }
 }

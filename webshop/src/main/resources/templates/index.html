@@ -75,123 +75,32 @@
     <!-- Start List Product-->
     <div class="catalog">
         <div class="container">
-            <div class="catalog__content">
-                <div class="catalog__content-item">
-                    <div th:switch="${products}" class="container my-5">
-                        <div class="col-md-10">
-                            <h2 th:case="null">No Product yet!</h2>
-                            <div th:case="*">
+            <div class="catalog__content" th:switch="${products}">
+                <h2 th:case="null">No Product yet!</h2>
+<!--                <div th:case="*">-->
+                    <tbody>
+                    <tr th:each="product : ${products}">
+                        <div class="catalog__content-item">
                                 <div class="item__img">
-                                    <tbody>
-                                    <tr th:each="product : ${products}">
-                                        <td th:text="${product.id}"></td>
-                                        <td th:text="${product.name}"></td>
-                                        <td th:text="${product.price}"></td>
-                                        <td th:text="${product.context}"></td>
-                                        <th th:text="${product.soLuong}"></th>
-                                        <th>
-                                            <img th:src="${product.imgurl}">
-                                        </th>
-                                        <td><a th:href="@{/products/edit/{id}(id=${product.id})}"
-                                               class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
-                                    </tr>
-                                    </tbody>
+                                    <th>
+                                        <a href="">
+                                            <img th:src="${product.imgurl}" alt="">
+                                        </a>
+                                    </th>
                                 </div>
-                            </div>
+                                <div class="item__info">
+                                    <a th:text="${product.context}"></a>
+                                    <span th:text="${product.price}"></span>
+                                    <a class="btn-add" href=""><i class="fas fa-cart-plus"></i> Mua</a>
+                                </div>
                         </div>
-                    </div>
-                </div>
+                    </tr>
+                    </tbody>
+<!--                </div>-->
             </div>
         </div>
     </div>
     <!-- End List Product -->
-    <!-- Start Catalog -->
-
-    <div class="catalog">
-        <div class="container">
-            <div class="catalog__content">
-                <div class="catalog__content-item">
-                    <div class="item__img">
-                        <a href="">
-                            <img src="images/item_1.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="item__info">
-                        <a class="item__info-name" href=""> ÁO SƠ MI KHOÁC NGOÀI </a>
-                        <span class="item__info-price">300.000đ</span>
-                        <a class="btn-add" href=""><i class="fas fa-cart-plus"></i> Mua</a>
-                    </div>
-                </div>
-
-                <div class="catalog__content-item">
-                    <div class="item__img">
-                        <a href="">
-                            <img src="images/item_2.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="item__info">
-                        <a class="item__info-name" href=""> SET DẠO PHỐ </a>
-                        <span class="item__info-price">550.000đ</span>
-                        <a class="btn-add" href=""><i class="fas fa-cart-plus"></i> Mua</a>
-                    </div>
-                </div>
-
-                <div class="catalog__content-item">
-                    <div class="item__img">
-                        <a href="">
-                            <img src="images/item_3.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="item__info">
-                        <a class="item__info-name" href=""> ĐẦM XUÔNG </a>
-                        <span class="item__info-price">250.000đ</span>
-                        <a class="btn-add" href=""><i class="fas fa-cart-plus"></i> Mua</a>
-                    </div>
-                </div>
-
-                <div class="catalog__content-item">
-                    <div class="item__img">
-                        <a href="">
-                            <img src="images/item_3.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="item__info">
-                        <a class="item__info-name" href=""> ĐẦM XUÔNG </a>
-                        <span class="item__info-price">250.000đ</span>
-                        <a class="btn-add" href=""><i class="fas fa-cart-plus"></i> Mua</a>
-                    </div>
-                </div>
-
-                <div class="catalog__content-item">
-                    <div class="item__img">
-                        <a href="">
-                            <img src="images/item_3.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="item__info">
-                        <a class="item__info-name" href=""> ĐẦM XUÔNG </a>
-                        <span class="item__info-price">250.000đ</span>
-                        <a class="btn-add" href=""><i class="fas fa-cart-plus"></i> Mua</a>
-                    </div>
-                </div>
-
-                <div class="catalog__content-item">
-                    <div class="item__img">
-                        <a href="">
-                            <img src="images/item_3.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="item__info">
-                        <a class="item__info-name" href=""> ĐẦM XUÔNG </a>
-                        <span class="item__info-price">250.000đ</span>
-                        <a class="btn-add" href=""><i class="fas fa-cart-plus"></i> Mua</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- End Catalog -->
     <!-- Start Policy -->
 
     <div class="policy">

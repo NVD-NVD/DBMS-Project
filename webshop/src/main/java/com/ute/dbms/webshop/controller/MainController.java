@@ -6,15 +6,14 @@ import com.ute.dbms.webshop.entity.FileUploadUtil;
 import com.ute.dbms.webshop.repository.ProductRepository;
 import com.ute.dbms.webshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.util.FileCopyUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -28,8 +27,6 @@ public class MainController {
     private UserRepository userRepository;
     @Autowired
     private ProductRepository productRepository;
-    @Value("${upload.path}")
-    private String fileUpload;
     @GetMapping(value = "/")
     public String home1(Model model){
         model.addAttribute("products", productRepository.findAll());
@@ -105,10 +102,11 @@ public class MainController {
                     .context(productForm.getContext())
                     .soLuong(productForm.getSoLuong()).build();
             MultipartFile multipartFile = productForm.getImgurl();
-            String fileName = multipartFile.getOriginalFilename();
-            FileUploadUtils.saveFile("product/", fileName, multipartFile);
-
-            product1.setImgurl(fileName);
+            String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+            String currentDirectory = System.getProperty("user.dir");
+            FileUploadUtil.saveFile(currentDirectory + "/src/main/resources/static/images/products/", fileName, multipartFile);
+            String fileUrl = "images/products/" + fileName;
+            product1.setImgurl(fileUrl);
             productRepository.save(product1);
             return "redirect:/admin/product/list";
         }
