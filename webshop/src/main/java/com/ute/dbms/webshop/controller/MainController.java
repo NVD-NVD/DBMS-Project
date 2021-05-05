@@ -2,29 +2,24 @@ package com.ute.dbms.webshop.controller;
 
 import com.ute.dbms.webshop.entity.Product;
 import com.ute.dbms.webshop.entity.ProductForm;
-import com.ute.dbms.webshop.entity.User;
+import com.ute.dbms.webshop.entity.FileUploadUtil;
 import com.ute.dbms.webshop.repository.ProductRepository;
 import com.ute.dbms.webshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
+import org.springframework.util.FileCopyUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.attribute.UserPrincipal;
-import java.security.Principal;
+
 import java.util.List;
 
 @Controller
@@ -102,7 +97,7 @@ public class MainController {
         return "/index";
     }
     @PostMapping("/admin/products/save")
-    public String AddProduct(@Valid ProductForm productForm, HttpServletRequest request) {
+    public String AddProduct(@Valid ProductForm productForm, HttpServletRequest request) throws IOException{
 
         if (request.isUserInRole("ADMIN")) {
             Product product1 = new Product.ProductBuilder(productForm.getName())
@@ -111,11 +106,8 @@ public class MainController {
                     .soLuong(productForm.getSoLuong()).build();
             MultipartFile multipartFile = productForm.getImgurl();
             String fileName = multipartFile.getOriginalFilename();
-            try {
-                FileCopyUtils.copy(productForm.getImgurl().getBytes(), new File(this.fileUpload + fileName));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FileUploadUtils.saveFile("product/", fileName, multipartFile);
+
             product1.setImgurl(fileName);
             productRepository.save(product1);
             return "redirect:/admin/product/list";
