@@ -8,7 +8,7 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" th:href="@{/sass/owl.carousel.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/sass/owl.theme.default.min.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/sass/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/sass/style.scss}">
     <link rel="stylesheet" type="text/css" th:href="@{/sass/reset.css}">
     <title>Cửa hàng bán quần áo </title>
 </head>
@@ -19,7 +19,6 @@
     <!-- End Header -->
 
     <!-- Start Feature -->
-
     <div class="feature">
         <div class="container">
             <div class="feature__content">
@@ -42,7 +41,6 @@
     <!-- End Feature -->
 
     <!-- Start Navigation -->
-
     <div class="navigation">
         <div class="container">
             <div class="navigation__menu">
@@ -56,11 +54,9 @@
             </div>
         </div>
     </div>
-
     <!-- End Navigation -->
 
     <!-- Start Slide Product -->
-
     <div class="slider owl-theme">
         <div class="container owl-carousel">
             <div class="item">
@@ -74,9 +70,41 @@
             </div>
         </div>
     </div>
-
     <!-- End Slide Product -->
 
+    <!-- Start List Product-->
+    <div class="catalog">
+        <div class="container">
+            <div class="catalog__content">
+                <div class="catalog__content-item">
+                    <div th:switch="${products}" class="container my-5">
+                        <div class="col-md-10">
+                            <h2 th:case="null">No Product yet!</h2>
+                            <div th:case="*">
+                                <div class="item__img">
+                                    <tbody>
+                                    <tr th:each="product : ${products}">
+                                        <td th:text="${product.id}"></td>
+                                        <td th:text="${product.name}"></td>
+                                        <td th:text="${product.price}"></td>
+                                        <td th:text="${product.context}"></td>
+                                        <th th:text="${product.soLuong}"></th>
+                                        <th>
+                                            <img th:src="${product.imgurl}">
+                                        </th>
+                                        <td><a th:href="@{/products/edit/{id}(id=${product.id})}"
+                                               class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                                    </tr>
+                                    </tbody>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End List Product -->
     <!-- Start Catalog -->
 
     <div class="catalog">

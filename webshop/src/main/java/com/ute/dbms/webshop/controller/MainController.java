@@ -1,22 +1,28 @@
 package com.ute.dbms.webshop.controller;
 
 import com.ute.dbms.webshop.entity.Product;
+import com.ute.dbms.webshop.entity.ProductForm;
 import com.ute.dbms.webshop.entity.User;
 import com.ute.dbms.webshop.repository.ProductRepository;
 import com.ute.dbms.webshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.attribute.UserPrincipal;
 import java.security.Principal;
 import java.util.List;
@@ -27,8 +33,11 @@ public class MainController {
     private UserRepository userRepository;
     @Autowired
     private ProductRepository productRepository;
+    @Value("${upload.path}")
+    private String fileUpload;
     @GetMapping(value = "/")
-    public String home1(){
+    public String home1(Model model){
+        model.addAttribute("products", productRepository.findAll());
         return "index";
     }
 
@@ -41,8 +50,7 @@ public class MainController {
         return "/sign-in";
     }
     @GetMapping("/admin")
-    public String adminPage(Model model){
-        model.addAttribute("products", productRepository.findAll());
+    public String adminPage(){
         return "admin";
     }
 //    @GetMapping("/loginTrue")
@@ -77,21 +85,41 @@ public class MainController {
         return "sign-up";
     }
 
-    @GetMapping("/403")
-    public String error403() {
-        return "/error/403";
+    @GetMapping("/admin/product/list")
+    public String adminPage(Model model){
+        List<Product> productList = productRepository.findAll();
+        model.addAttribute("products", productList);
+        for(Product product : productList){
+            System.out.println(product.toString());
+        }
+        return "/admin";
     }
     @GetMapping("/admin/products/add")
-    public String addProduct(Product product){
-        return "/add-product";
-    }
-    @PostMapping("/admin/products/addPro")
-    public String AddProduct(@Valid Product product, BindingResult result, Model model) {
-        if (result.hasErrors()) {
+    public String addProduct(HttpServletRequest request, ProductForm productForm){
+        if(request.isUserInRole("ADMIN")){
             return "/add-product";
         }
+        return "/index";
+    }
+    @PostMapping("/admin/products/save")
+    public String AddProduct(@Valid ProductForm productForm, HttpServletRequest request) {
 
-        productRepository.save(product);
-        return "redirect:/admin";
+        if (request.isUserInRole("ADMIN")) {
+            Product product1 = new Product.ProductBuilder(productForm.getName())
+                    .price(productForm.getPrice())
+                    .context(productForm.getContext())
+                    .soLuong(productForm.getSoLuong()).build();
+            MultipartFile multipartFile = productForm.getImgurl();
+            String fileName = multipartFile.getOriginalFilename();
+            try {
+                FileCopyUtils.copy(productForm.getImgurl().getBytes(), new File(this.fileUpload + fileName));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            product1.setImgurl(fileName);
+            productRepository.save(product1);
+            return "redirect:/admin/product/list";
+        }
+        return "/index";
     }
 }
