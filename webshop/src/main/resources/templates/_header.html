@@ -14,8 +14,16 @@
                     <ul>
                         <li><a href="#"><i class="fas fa-pen-square"></i> Kiểm tra đơn hàng</a></li>
                         <li><a th:href="@{/cart}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                        <li><a th:href="@{/login}" methods="GET"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
-                        <li><a th:href="@{/signup}"><i class="fa fa-key"></i> Đăng ký</a></li>
+                        <div th:switch="${#request.userPrincipal}">
+                            <div th:case="null">
+                                <li><a th:href="@{/login}" methods="GET"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                                <li><a th:href="@{/signup}"><i class="fa fa-key"></i> Đăng ký</a></li>
+                            </div>
+                            <div th:case="*">
+                                <li><a th:text="${#request.userPrincipal.getName()}"></a></li>
+                                <li><a th:href="@{/logout}">Logout</a></li>
+                            </div>
+                        </div>
                     </ul>
                 </div>
             </div>

@@ -63,14 +63,19 @@ public class DataSeedingListener implements CommandLineRunner {
         // Products
         if(productRepository.findAll() == null){
             Product product1 = new Product("item1", 350000,"ÁO SƠ MI KHOÁC NGOÀI", 50, "images/products/item_1.jpg");
+            product1.setId(1);
             productRepository.save(product1);
             Product product2 = new Product("item2", 500000,"SET DẠO PHỐ", 50, "images/products/item_2.jpg");
+            product2.setId(2);
             productRepository.save(product2);
             Product product3 = new Product("item3", 250000,"ĐẦM XUÔNG", 50, "images/products/item_3.jpg");
+            product3.setId(3);
             productRepository.save(product3);
             Product product4 = new Product("item4", 250000,"ĐẦM XUÔNG", 50, "images/products/item_4.jpg");
+            product4.setId(4);
             productRepository.save(product4);
             Product product5 = new Product("item5", 250000,"ĐẦM XUÔNG", 50, "images/products/item_5.jpg");
+            product5.setId(5);
             productRepository.save(product5);
         }
     }
