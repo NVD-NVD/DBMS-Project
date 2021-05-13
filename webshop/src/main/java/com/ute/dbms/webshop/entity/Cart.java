@@ -1,25 +1,49 @@
 package com.ute.dbms.webshop.entity;
 
+import javax.persistence.*;
 import java.util.Optional;
 
+@Entity
+@Table(name = "cart")
 public class Cart {
-    private Optional<Product> product;
+    @Id
+    @Column(name = "user_id")
+    private Long userID;
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @Column(name = "product_id")
+    private int productID;
+
+    @Column
     private int quantity;
 
     public Cart() {
     }
 
-    public Cart(Optional<Product> product, int quantity) {
-        this.product = product;
+    public Cart(Long userID, int productID, int quantity) {
+        this.userID = userID;
+        this.productID = productID;
         this.quantity = quantity;
     }
 
-    public Optional<Product> getProduct() {
-        return product;
+    public Long getUserID() {
+        return userID;
     }
 
-    public void setProduct(Optional<Product> product) {
-        this.product = product;
+    public void setUserID(Long userID) {
+        this.userID = userID;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
     }
 
     public int getQuantity() {

@@ -226,10 +226,11 @@ p.agileits2 {
     float: left;
     padding: 25px 0 0;
 }
-input#firstname,
 input#email,
-input#password1,
-input#password2 {
+input#password,
+input#name,
+input#phone,
+input#address {
     width: 300px;
     height: 50px;
     padding: 0 15px;

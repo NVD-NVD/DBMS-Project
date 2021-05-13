@@ -33,6 +33,15 @@ public class Product {
         this.soLuong = soLuong;
     }
 
+    public Product(int id, String name, int price, String context, int soLuong, String imgurl) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.context = context;
+        this.soLuong = soLuong;
+        this.imgurl = imgurl;
+    }
+
     public Product(String name, int price, String context, int soLuong) {
         this.name = name;
         this.price = price;
@@ -47,48 +56,6 @@ public class Product {
         this.soLuong = soLuong;
         this.imgurl = imgurl;
     }
-    public Product(ProductBuilder productBuilder){
-        this.name = productBuilder.name;
-        this.price = productBuilder.price;
-        this.context = productBuilder.context;
-        this.soLuong = productBuilder.soLuong;
-        this.imgurl = productBuilder.imgurl;
-    }
-    public static class ProductBuilder {
-        private final String name;
-        private int price;
-        private String context;
-        private int soLuong;
-        private String imgurl;
-        public ProductBuilder(String name) {
-            this.name = name;
-        }
-
-        public ProductBuilder price(int price) {
-            this.price = price;
-            return this;
-        }
-
-        public ProductBuilder context(String context) {
-            this.context = context;
-            return this;
-        }
-
-        public ProductBuilder soLuong(int soLuong) {
-            this.soLuong = soLuong;
-            return this;
-        }
-
-        public ProductBuilder imgUrl(String imgurl) {
-            this.imgurl = imgurl;
-            return this;
-        }
-
-        public Product build() {
-            return new Product(this);
-        }
-    }
-
 
     public int getId() {
         return id;

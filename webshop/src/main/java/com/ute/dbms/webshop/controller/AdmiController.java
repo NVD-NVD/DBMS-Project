@@ -2,7 +2,6 @@ package com.ute.dbms.webshop.controller;
 
 import com.ute.dbms.webshop.entity.FileUploadUtil;
 import com.ute.dbms.webshop.entity.Product;
-import com.ute.dbms.webshop.entity.ProductForm;
 import com.ute.dbms.webshop.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +22,10 @@ import java.util.List;
 public class AdmiController {
     @Autowired
     private ProductRepository productRepository;
-
+    @GetMapping()
+    public String adminPage(){
+        return "/admin";
+    }
     @GetMapping("/product/list")
     public String adminPage(Model model){
         List<Product> productList = productRepository.findAll();
@@ -34,21 +36,20 @@ public class AdmiController {
         return "/admin";
     }
     @GetMapping("/products/add")
-    public String addProduct(HttpServletRequest request, ProductForm productForm){
+    public String addProduct(HttpServletRequest request, Product product, MultipartFile multipartFile){
         if(request.isUserInRole("ADMIN")){
             return "/add-product";
         }
         return "/index";
     }
     @PostMapping("/products/save")
-    public String AddProduct(@Valid ProductForm productForm, HttpServletRequest request) throws IOException {
+    public String AddProduct(@Valid Product product, MultipartFile multipartFile, HttpServletRequest request) throws IOException {
 
         if (request.isUserInRole("ADMIN")) {
-            Product product1 = new Product.ProductBuilder(productForm.getName())
-                    .price(productForm.getPrice())
-                    .context(productForm.getContext())
-                    .soLuong(productForm.getSoLuong()).build();
-            MultipartFile multipartFile = productForm.getImgurl();
+            Product product1 = new Product(product.getName()
+                    ,product.getPrice()
+                    ,product.getContext()
+                    ,product.getSoLuong());
             String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
             String currentDirectory = System.getProperty("user.dir");
             FileUploadUtil.saveFile(currentDirectory + "/src/main/resources/static/images/products/", fileName, multipartFile);
