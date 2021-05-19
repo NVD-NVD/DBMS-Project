@@ -85,6 +85,24 @@ Version : 1.0.0
   color: #ffffff !important;
 }
 
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
 /* ============ 1,Header ===========*/
 .header {
   background: #f46164;
@@ -177,101 +195,71 @@ Version : 1.0.0
   transition: 0.3s all;
 }
 
-/* ============ 4,Slide Product ===========*/
-.slider {
-  height: 600px;
+/* ============ 4,Order ===========*/
+.order {
+  margin-bottom: 50px;
 }
-
-/* ============ 5,Catalog ===========*/
-.catalog {
+.order .container .order__content {
+  margin-top: 10px;
+}
+.order .container .order__content .title {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  border-bottom: 2px solid #f46164;
   margin-top: 20px;
-}
-.catalog .container .catalog__title {
   margin-bottom: 20px;
 }
-.catalog .container .catalog__title h3 {
-  border-bottom: 2px solid #f46164;
-  margin-bottom: 0;
-  margin-top: 20px;
-  text-transform: uppercase;
-  font-size: 30px;
-  font-family: inherit;
-  font-weight: 500;
-  line-height: 1.1;
-}
-.catalog .container .catalog__title h3 span {
-  background: #f46164 none repeat scroll 0 0;
-  color: #ffffff;
-  display: inline-block;
+.order .container .order__content .title span {
   font-size: 17px;
+  background: #f46164 none repeat scroll 0 0;
+  color: #fff;
+  display: inline-block;
   padding: 9px 10px;
   position: relative;
   text-transform: uppercase;
 }
-.catalog .container .catalog__content {
-  display: flex;
-  flex-wrap: wrap;
+.order .container .order__block .order__block-info .table {
+  margin-bottom: 0;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
-.catalog .container .catalog__content .catalog__content-item {
-  width: 33.333%;
+.order .container .order__block .order__block-info .table thead {
+  background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #fdfdfd 0%, #f4f4f4 100%) repeat scroll 0 0 !important;
+}
+.order .container .order__block .order__block-info .table tbody tr td {
   text-align: center;
-  margin-bottom: 20px;
+  padding: 8px;
+  line-height: 1.42857143;
+  border-top: 1px solid #ddd;
 }
-.catalog .container .catalog__content .catalog__content-item .item__img a img {
-  max-height: 350px;
-  width: 275px;
-}
-.catalog .container .catalog__content .catalog__content-item .item__info {
-  margin-top: 10px;
-}
-.catalog .container .catalog__content .catalog__content-item .item__info .item__info-name {
-  font-weight: 500;
-  color: #000;
-}
-.catalog .container .catalog__content .catalog__content-item .item__info .item__info-name:hover {
+.order .container .order__block .order__block-info .table tbody tr .price__order {
+  vertical-align: middle;
   color: #f46164;
+  padding: 8px;
+  line-height: 1.42857143;
+  border-top: 1px solid #ddd;
 }
-.catalog .container .catalog__content .catalog__content-item .item__info span {
-  display: block;
-  padding: 5px 0 15px 0;
+.order .container .order__block .order__block-info .table tbody tr a {
   color: #f46164;
+  font-size: 26px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
 }
-.catalog .container .catalog__content .catalog__content-item .item__info .btn-add {
-  padding: 10px 20px;
-  border: 1px solid red;
-  border-radius: 4px;
-  color: #f46164;
-}
-.catalog .container .catalog__content .catalog__content-item .item__info .btn-add:hover {
-  color: #ffffff;
-  background-color: #f46164;
-  transition: 0.3s all;
-}
-
-/* ============ 6,Policy ===========*/
-.policy {
-  margin: 20px 0 30px 0;
-}
-.policy .container .policy__content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.policy .container .policy__content .policy__content-item {
-  display: flex;
-  align-items: center;
-  border: 1px #f46164 solid;
-  color: white;
-  font-size: 16px;
-  background-color: #f46164;
-  padding: 20px;
-}
-.policy .container .policy__content .policy__content-item i {
-  font-size: 30px;
+.order .container .order__block .order__block-info .table tbody tr a .fa-info-circle {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
   margin-right: 5px;
 }
 
-/* ============ 7,Footer ===========*/
+/* ============ 5,Footer ===========*/
 .footer {
   margin-top: 20px;
 }
@@ -338,4 +326,4 @@ Version : 1.0.0
   color: white;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=kiemtradonhang.css.map */
