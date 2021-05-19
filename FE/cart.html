@@ -5,148 +5,172 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/sass/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/sass/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./assets/sass/cart.css">
+    <link rel="stylesheet" href="./assets/sass/reset.css">
 
-    <title>Cart</title>
+    <title>Giỏ hàng</title>
 </head>
 
 <body>
-    <h2 class="text-center">Shopping Cart</h2>
-    <div class="container">
-        <table id="cart" class="table table-hover table-condensed">
-            <thead>
-                <tr>
-                    <th style="width:50%">Tên sản phẩm</th>
-                    <th style="width:10%">Giá</th>
-                    <th style="width:8%">Số lượng</th>
-                    <th style="width:22%" class="text-center">Thành tiền</th>
-                    <th style="width:10%"> </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-th="Product">
-                        <div class="row">
-                            <div class="col-sm-2 hidden-xs"><img
-                                    src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/shopping_cart/images/090.jpg"
-                                    alt="Sản phẩm 1" class="img-responsive" width="100">
-                            </div>
-                            <div class="col-sm-10">
-                                <h4 class="nomargin">Sản phẩm 1</h4>
-                                <p>Mô tả của sản phẩm 1</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td data-th="Price">200.000 đ</td>
-                    <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
-                    </td>
-                    <td data-th="Subtotal" class="text-center">200.000 đ</td>
-                    <td class="actions" data-th="">
-                        <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
+    <!-- Start Header -->
+    <div class="header">
+        <div class="container">
+            <div class="header__logo">
+                <p><a href="">Hotline: 0903 113 114</a></p>
+            </div>
+            <div class="header__menu">
+                <ul>
+                    <li><a href="kiemtradonhang.html"><i class="fas fa-pen-square"></i> Kiểm tra đơn hàng</a></li>
+                    <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                    <li><a href="sign-in.html"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                    <li><a href="sign-up.html"><i class="fa fa-key"></i> Đăng ký</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Header -->
+
+    <!-- Start Feature -->
+
+    <div class="feature">
+        <div class="container">
+            <div class="feature__content">
+                <div class="feature__content-logo">
+                    <img src="./assets/images/logo-web.jpg" alt="">
+                </div>
+
+                <div class="feature__content-search">
+                    <input type="text" placeholder="Tìm kiếm ....">
+                    <span class="input-group-btn">
+                        <button class="btn btn-search" title="Search" type="submit">
+                            <i class="fas fa-search"></i>
                         </button>
-                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-th="Product">
-                        <div class="row">
-                            <div class="col-sm-2 hidden-xs"><img
-                                    src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/shopping_cart/images/174.jpg"
-                                    alt="Sản phẩm 1" class="img-responsive" width="100">
-                            </div>
-                            <div class="col-sm-10">
-                                <h4 class="nomargin">Sản phẩm 2</h4>
-                                <p>Mô tả của sản phẩm 2</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td data-th="Price">300.000 đ</td>
-                    <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
-                    </td>
-                    <td data-th="Subtotal" class="text-center">300.000 đ</td>
-                    <td class="actions" data-th="">
-                        <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
-                        </button>
-                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr class="visible-xs">
-                    <td class="text-center"><strong>Tổng 200.000 đ</strong>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="http://hocwebgiare.com/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp
-                            tục mua hàng</a>
-                    </td>
-                    <td colspan="2" class="hidden-xs"> </td>
-                    <td class="hidden-xs text-center"><strong>Tổng tiền 500.000 đ</strong>
-                    </td>
-                    <td><a href="http://hocwebgiare.com/" class="btn btn-success btn-block">Thanh toán <i
-                                class="fa fa-angle-right"></i></a>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Feature -->
+
+    <!-- Start Navigation -->
+
+    <div class="navigation">
+        <div class="container">
+            <div class="navigation__menu">
+                <ul>
+                    <li><a href="trang-chu.html">TRANG CHỦ</a></li>
+                    <li><a href="">ÁO THUN</a></li>
+                    <li><a href="">VÁY</a></li>
+                    <li><a href="">PHỤ KIỆN</a></li>
+                    <li><a href="">LIÊN HỆ</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <!-- css -->
-    <style type="text/css">
-        @media screen and (max-width: 600px) {
-            table#cart tbody td .form-control {
-                width: 20%;
-                display: inline !important;
-            }
+    <!-- End Navigation -->
 
-            .actions .btn {
-                width: 36%;
-                margin: 1.5em 0;
-            }
+    <!-- Start Cart -->
 
-            .actions .btn-info {
-                float: left;
-            }
+    <div class="cart">
+        <div class="container">
+            <div class="cart__content">
+                <h1 class="title">
+                    <span>Giỏ hàng của tôi</span>
+                </h1>
+            </div>
 
-            .actions .btn-danger {
-                float: right;
-            }
+            <div class="cart__block">
+                <div class="cart__block-info">
+                    <table class="table product__list">
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Hình ảnh</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="description">
+                                    <h2>Áo sơ mi khoác ngoài</h2>
+                                </td>
+                                <td class="img">
+                                    <img src="./assets/images/item_1.jpg" alt="">
+                                </td>
+                                <td class="price">300.000đ</td>
+                                <td class="quantity">
+                                    <input type="number" value="1">
+                                </td>
+                                <td class="amount">300.000đ</td>
+                                <td class="remove">
+                                    <a href="">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cart__block-price"></div>
+                <div class="cart__block-btn"></div>
+            </div>
+        </div>
+    </div>
 
-            table#cart thead {
-                display: none;
-            }
+    <!-- End Cart -->
+    <hr>
+    <!-- Start Footer -->
 
-            table#cart tbody td {
-                display: block;
-                padding: .6rem;
-                min-width: 320px;
-            }
+    <div class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__content-help">
+                    <h2>HỖ TRỢ</h2>
+                    <ul>
+                        <li><i class="fas fa-question"></i> Hướng dẫn thanh toán</li>
+                        <li><i class="fas fa-reply"></i> Quy định đổi trả</li>
+                        <li><i class="fas fa-shield-alt"></i> Chính sách bảo mật</li>
+                        <li><i class="fas fa-tshirt"></i> Chính sách bán hàng</li>
+                    </ul>
+                </div>
 
-            table#cart tbody tr td:first-child {
-                background: #333;
-                color: #fff;
-            }
+                <div class="footer__content-intro">
+                    <h2>GIỚI THIỆU</h2>
+                    <ul>
+                        <li><i class="fas fa-map-marker"></i> 1 Võ Văn Ngân, Linh Chiểu, Thủ Đức, Thành phố Hồ Chí Minh
+                        </li>
+                        <li><i class="fas fa-phone-alt"></i> 0903 113 114</li>
+                        <li><i class="fas fa-envelope"></i><a href="">admin@gmail.com</a></li>
+                        <li><i class="fas fa-globe-asia"></i> <a
+                                href="http://127.0.0.1:5500/FE/trang-chu.html">http://127.0.0.1:5500/FE/trang-chu.html</a>
+                        </li>
+                    </ul>
+                </div>
 
-            table#cart tbody td:before {
-                content: attr(data-th);
-                font-weight: bold;
-                display: inline-block;
-                width: 8rem;
-            }
+                <div class="footer__content-social">
+                    <h2>MẠNG XÃ HỘI</h2>
+                    <ul>
+                        <li><a href="facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="instagam.com"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="gmail.com"><i class="fab fa-google"></i></a></li>
+                        <li><a href="youtube.com"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            table#cart tfoot td {
-                display: block;
-            }
-
-            table#cart tfoot td .btn {
-                display: block;
-            }
-        }
-    </style>
+    <!-- End Footer -->
 </body>
-<script src="js/jquery-1.11.1.min.js"></script>
+
 
 </html>

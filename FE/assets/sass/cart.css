@@ -1,3 +1,378 @@
+/* Theme Description :HTML/SCSS
+Author : Hoang Long
+Version : 1.0.0
+*/
+/* ================ TABLE OF CONTENT ==================
+1, Header
+2, Feature
+3, Navigation
+4, Cart
+5, Footer
 
+*/
+/* ============ 0, Setting =========== */
+@import url(./mixin.scss);
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+.row .col-1 {
+  width: 8.3333333333%;
+  padding: 10px;
+}
+.row .col-2 {
+  width: 16.6666666667%;
+  padding: 10px;
+}
+.row .col-3 {
+  width: 25%;
+  padding: 10px;
+}
+.row .col-4 {
+  width: 33.3333333333%;
+  padding: 10px;
+}
+.row .col-5 {
+  width: 41.6666666667%;
+  padding: 10px;
+}
+.row .col-6 {
+  width: 50%;
+  padding: 10px;
+}
+.row .col-7 {
+  width: 58.3333333333%;
+  padding: 10px;
+}
+.row .col-8 {
+  width: 66.6666666667%;
+  padding: 10px;
+}
+.row .col-9 {
+  width: 75%;
+  padding: 10px;
+}
+.row .col-10 {
+  width: 83.3333333333%;
+  padding: 10px;
+}
+.row .col-11 {
+  width: 91.6666666667%;
+  padding: 10px;
+}
+.row .col-12 {
+  width: 100%;
+  padding: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 15px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  transition: all 0.3s ease-in-out;
+  color: #ffffff !important;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+/* ============ 1,Header ===========*/
+.header {
+  background: #f46164;
+  border-top: 2px solid #f46164;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .container .header__logo p a {
+  color: white;
+}
+.header .container .header__menu ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .container .header__menu ul li {
+  padding: 10px;
+  height: 40px;
+}
+.header .container .header__menu ul li a {
+  color: white;
+  padding: 20px;
+}
+.header .container .header__menu ul li a:hover {
+  background: white;
+  color: red;
+}
+
+/* ============ 2,Feature ===========*/
+.feature {
+  padding: 20px 0 20px 0;
+}
+.feature .container .feature__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.feature .container .feature__content .feature__content-logo img {
+  border: 0 none;
+  width: 100px;
+  vertical-align: middle;
+  max-height: 100px;
+  cursor: pointer;
+}
+.feature .container .feature__content .feature__content-search {
+  display: flex;
+  margin-right: 25px;
+}
+.feature .container .feature__content .feature__content-search input {
+  width: 400px;
+  border: 1px solid #dedede;
+  border-radius: 0;
+  color: #454545;
+  height: 40px;
+  padding: 5px;
+}
+.feature .container .feature__content .feature__content-search span .btn-search {
+  background-color: #000;
+  height: 40px;
+  font-size: 14px;
+  border: none;
+}
+.feature .container .feature__content .feature__content-search span .btn-search:hover {
+  background-color: #f46164;
+}
+
+/* ============ 3,Navigation ===========*/
+.navigation {
+  background: #454545;
+}
+.navigation .container .navigation__menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation .container .navigation__menu ul li {
+  text-align: center;
+  padding: 20px;
+}
+.navigation .container .navigation__menu ul li a {
+  padding: 20px;
+  color: white;
+  font-weight: 500;
+}
+.navigation .container .navigation__menu ul li a:hover {
+  background: #f46164;
+  transition: 0.3s all;
+}
+
+/* ============ 4,Cart ===========*/
+.cart {
+  margin-bottom: 50px;
+}
+.cart .container .cart__content {
+  margin-top: 20px;
+}
+.cart .container .cart__content .title {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  border-bottom: 2px solid #f46164;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.cart .container .cart__content .title span {
+  font-size: 17px;
+  background: #f46164 none repeat scroll 0 0;
+  color: #fff;
+  display: inline-block;
+  padding: 9px 10px;
+  position: relative;
+  text-transform: uppercase;
+}
+.cart .container .cart__block {
+  margin-top: 20px;
+}
+.cart .container .cart__block .cart__block-info .table {
+  margin-bottom: 0;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.cart .container .cart__block .cart__block-info .table thead {
+  background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #fdfdfd 0%, #f4f4f4 100%) repeat scroll 0 0 !important;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr td {
+  text-align: center;
+  padding: 8px;
+  line-height: 1.42857143;
+  border-top: 1px solid #ddd;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr td h2 {
+  font-size: 14px;
+  margin: 10px 0;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr .img {
+  padding: 8px;
+  line-height: 1.42857143;
+  border-top: 1px solid #ddd;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr .img img {
+  height: 60px;
+  width: auto;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  border: 0;
+  text-align: center;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr .price {
+  vertical-align: middle;
+  color: #f46164;
+  padding: 8px;
+  line-height: 1.42857143;
+  border-top: 1px solid #ddd;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr .quantity {
+  padding: 8px;
+  line-height: 1.42857143;
+  border-top: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr .quantity input {
+  float: left;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  width: 60px;
+  margin-bottom: 15px;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr .amount {
+  color: #f46164;
+  vertical-align: middle;
+  padding: 8px;
+  line-height: 1.42857143;
+  border-top: 1px solid #ddd;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr .remove {
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px;
+  line-height: 1.42857143;
+  border-top: 1px solid #ddd;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr .remove a {
+  color: #f46164;
+  font-size: 26px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+.cart .container .cart__block .cart__block-info .table tbody tr .remove a .fa-trash {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  margin-right: 5px;
+}
+
+/* ============ 5,Footer ===========*/
+.footer {
+  margin-top: 20px;
+}
+.footer .container .footer__content {
+  display: flex;
+  justify-content: space-between;
+}
+.footer .container .footer__content .footer__content-intro {
+  width: 33.3333%;
+}
+.footer .container .footer__content .footer__content-intro h2 {
+  margin-bottom: 20px;
+}
+.footer .container .footer__content .footer__content-intro ul li {
+  margin-bottom: 20px;
+}
+.footer .container .footer__content .footer__content-intro ul li a {
+  color: #000;
+}
+.footer .container .footer__content .footer__content-intro ul li a:hover {
+  color: #f46164;
+}
+.footer .container .footer__content .footer__content-intro ul li i {
+  margin-right: 5px;
+}
+.footer .container .footer__content .footer__content-help {
+  width: 33.3333%;
+}
+.footer .container .footer__content .footer__content-help h2 {
+  margin-bottom: 20px;
+}
+.footer .container .footer__content .footer__content-help ul li {
+  margin-bottom: 20px;
+}
+.footer .container .footer__content .footer__content-help ul li i {
+  margin-right: 5px;
+}
+.footer .container .footer__content .footer__content-social h2 {
+  margin-bottom: 30px;
+}
+.footer .container .footer__content .footer__content-social ul {
+  display: flex;
+  align-items: center;
+}
+.footer .container .footer__content .footer__content-social ul li {
+  display: block;
+  margin-right: 10px;
+}
+.footer .container .footer__content .footer__content-social ul li a {
+  border: 1px solid #f46164;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #f46164;
+}
+.footer .container .footer__content .footer__content-social ul li a:hover {
+  background-color: white;
+  border: white 1px solid;
+  transition: 0.3s all;
+}
+.footer .container .footer__content .footer__content-social ul li a:hover i {
+  color: #f46164;
+}
+.footer .container .footer__content .footer__content-social ul li a i {
+  color: white;
+}
 
 /*# sourceMappingURL=cart.css.map */
