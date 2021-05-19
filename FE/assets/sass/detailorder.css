@@ -1,4 +1,4 @@
-/* Theme Description :HTML/SCSS/JS
+/* Theme Description :HTML/SCSS
 Author : Hoang Long
 Version : 1.0.0
 */
@@ -6,14 +6,12 @@ Version : 1.0.0
 1, Header
 2, Feature
 3, Navigation
-4, Slide Product
-5, Catalog
-6, Policy
-7, Footer
+4, Detail
+5, Footer
 
 */
 /* ============ 0, Setting =========== */
-@import url(../sass/mixin.scss);
+@import url(./mixin.scss);
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -83,6 +81,28 @@ Version : 1.0.0
   background-image: none;
   transition: all 0.3s ease-in-out;
   color: #ffffff !important;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+b {
+  font-weight: 700;
 }
 
 /* ============ 1,Header ===========*/
@@ -177,101 +197,155 @@ Version : 1.0.0
   transition: 0.3s all;
 }
 
-/* ============ 4,Slide Product ===========*/
-.slider {
-  height: 600px;
+/* ============ 4,Detail ===========*/
+.detail {
+  margin-bottom: 100px;
 }
-
-/* ============ 5,Catalog ===========*/
-.catalog {
+.detail .container .detail__content {
+  margin-top: 10px;
+}
+.detail .container .detail__content .title {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  border-bottom: 2px solid #f46164;
   margin-top: 20px;
-}
-.catalog .container .catalog__title {
   margin-bottom: 20px;
 }
-.catalog .container .catalog__title h3 {
-  border-bottom: 2px solid #f46164;
-  margin-bottom: 0;
-  margin-top: 20px;
-  text-transform: uppercase;
-  font-size: 30px;
-  font-family: inherit;
-  font-weight: 500;
-  line-height: 1.1;
-}
-.catalog .container .catalog__title h3 span {
-  background: #f46164 none repeat scroll 0 0;
-  color: #ffffff;
-  display: inline-block;
+.detail .container .detail__content .title span {
   font-size: 17px;
+  background: #f46164 none repeat scroll 0 0;
+  color: #fff;
+  display: inline-block;
   padding: 9px 10px;
   position: relative;
   text-transform: uppercase;
 }
-.catalog .container .catalog__content {
-  display: flex;
-  flex-wrap: wrap;
+.detail .container .detail__content .detail__order .form-inline {
+  padding: 10px;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+  margin-bottom: 15px;
 }
-.catalog .container .catalog__content .catalog__content-item {
-  width: 33.333%;
-  text-align: center;
-  margin-bottom: 20px;
-}
-.catalog .container .catalog__content .catalog__content-item .item__img a img {
-  max-height: 350px;
-  width: 275px;
-}
-.catalog .container .catalog__content .catalog__content-item .item__info {
-  margin-top: 10px;
-}
-.catalog .container .catalog__content .catalog__content-item .item__info .item__info-name {
-  font-weight: 500;
-  color: #000;
-}
-.catalog .container .catalog__content .catalog__content-item .item__info .item__info-name:hover {
-  color: #f46164;
-}
-.catalog .container .catalog__content .catalog__content-item .item__info span {
+.detail .container .detail__content .detail__order .form-inline .form-group {
   display: block;
-  padding: 5px 0 15px 0;
-  color: #f46164;
+  margin-bottom: 0;
 }
-.catalog .container .catalog__content .catalog__content-item .item__info .btn-add {
-  padding: 10px 20px;
-  border: 1px solid red;
+.detail .container .detail__content .detail__order .form-inline .form-group label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.detail .container .detail__content .detail__order .form-inline .form-group input {
+  margin-bottom: 0;
+  min-width: 30%;
+}
+.detail .container .detail__content .detail__order .form-inline .form-group .form-control {
+  color: #454545;
+  font-size: 11px;
+  height: 34px;
+  padding: 6px 12px;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.detail .container .detail__content .detail__order .form-inline .form-group button {
+  margin-bottom: 0;
+  background-color: #f46164;
+  border: none;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.detail .container .detail__content .detail__order .detail__info h2 {
+  font-size: 14px;
+  margin: 10px 0;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table {
+  min-height: 0.01%;
+  overflow-x: auto;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart {
+  border: 1px solid #ababab;
+  background-color: #ffffff;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart thead {
+  background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #fdfdfd 0%, #f4f4f4 100%) repeat scroll 0 0 !important;
+  text-transform: uppercase;
+  color: #454545;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart thead tr th {
+  vertical-align: middle;
+  border-bottom: 2px solid #ddd;
+  padding: 8px;
+  line-height: 1.42857143;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody {
+  margin-top: 100px;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .bar {
+  text-align: center;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .bar td {
+  vertical-align: middle;
+  padding: 8px;
+  line-height: 1.42857143;
+  border-top: 1px solid #ddd;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .bar td a {
   color: #f46164;
+  background-color: transparent;
 }
-.catalog .container .catalog__content .catalog__content-item .item__info .btn-add:hover {
-  color: #ffffff;
-  background-color: #f46164;
-  transition: 0.3s all;
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .payment-info td {
+  vertical-align: middle;
+  padding: 8px;
+  line-height: 1.42857143;
+  border-top: 1px solid #ddd;
 }
-
-/* ============ 6,Policy ===========*/
-.policy {
-  margin: 20px 0 30px 0;
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .payment-info td a {
+  color: #f46164;
+  background-color: transparent;
 }
-.policy .container .policy__content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .payment-info .border-right .customer__content .customer__content-title {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: #f46164;
+  font-weight: bold;
 }
-.policy .container .policy__content .policy__content-item {
-  display: flex;
-  align-items: center;
-  border: 1px #f46164 solid;
-  color: white;
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .payment-info .border-right .customer__content .customer__content-title span {
+  border-bottom: 1px solid #f46164;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .payment-info .border-right b {
+  font-weight: 700;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .payment-info .payment table tbody tr .text-left {
+  border-top: none;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .payment-info .payment table tbody tr .text-right {
+  border-top: none;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .payment-info .payment table tbody tr .text-right .total-payment {
+  color: #f46164;
   font-size: 16px;
-  background-color: #f46164;
-  padding: 20px;
 }
-.policy .container .policy__content .policy__content-item i {
-  font-size: 30px;
-  margin-right: 5px;
+.detail .container .detail__content .detail__order .detail__info .detail__table .table-mycart tbody .payment-info .payment table tbody .order-stt {
+  background-color: #f46164;
+  color: #ffffff;
+  text-align: center;
+}
+.detail .container .detail__content .detail__order .detail__info .detail__table .table {
+  margin-bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
 
-/* ============ 7,Footer ===========*/
+/* ============ 5,Footer ===========*/
 .footer {
   margin-top: 20px;
 }
@@ -338,4 +412,4 @@ Version : 1.0.0
   color: white;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=detailorder.css.map */
