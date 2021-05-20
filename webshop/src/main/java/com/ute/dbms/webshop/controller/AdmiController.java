@@ -32,23 +32,20 @@ public class AdmiController {
     public String adminPage(){
         return "/admin";
     }
-    @GetMapping("/product/sanpham")
+    @GetMapping("/product")
     public String adminPage(Model model){
         List<Product> productList = productRepository.findAll();
         model.addAttribute("products", productList);
-        for(Product product : productList){
-            System.out.println(product.toString());
-        }
         return "/admin-sanpham";
     }
-    @GetMapping("/products/sanpham/add")
+    @GetMapping("/products/add")
     public String addProduct(HttpServletRequest request, Product product, MultipartFile multipartFile){
         if(request.isUserInRole("ADMIN")){
             return "/add-product";
         }
         return "/index";
     }
-    @PostMapping("/products/sanpham/save")
+    @PostMapping("/products/save")
     public String AddProduct(@Valid Product product, MultipartFile multipartFile, HttpServletRequest request) throws IOException {
 
         if (request.isUserInRole("ADMIN")) {
@@ -67,9 +64,9 @@ public class AdmiController {
         return "/index";
     }
 
-    @GetMapping("/product/nhanvien")
+    @GetMapping("/nhanvien")
     public String nhanvien(Model model){
-        List<User> list = userRepository.findAllByRoles("ROLE_STAFF");
+        List<User> list = userRepository.findAll();
         model.addAttribute("accounts", list);
 
         return "/admin-nv";
