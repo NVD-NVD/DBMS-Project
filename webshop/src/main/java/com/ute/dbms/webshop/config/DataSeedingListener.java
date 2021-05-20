@@ -33,7 +33,9 @@ public class DataSeedingListener implements CommandLineRunner {
         if (roleRepository.findByRoleName("ROLE_ADMIN") == null) {
             roleRepository.save(new Role("ROLE_ADMIN"));
         }
-
+        if (roleRepository.findByRoleName("ROLE_STAFF") == null) {
+            roleRepository.save(new Role("ROLE_STAFF"));
+        }
         if (roleRepository.findByRoleName("ROLE_MEMBER") == null) {
             roleRepository.save(new Role("ROLE_MEMBER"));
         }

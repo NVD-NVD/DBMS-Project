@@ -9,24 +9,24 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "USER_INFOR")
+@Table(name = "user_info")
 public class UserInfo {
     @Id
-    @Column(name = "user_id")
+    @Column(name = "id")
     private Long id;
 
     @OneToOne
     @MapsId
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "id")
     private User user;
 
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "name", nullable = false)
     private String userName;
 
-    @Column(name = "PHONE", nullable = false)
+    @Column(name = "phone", nullable = false)
     private Long phone;
 
-    @Column(name = "ADDRESS", nullable = false)
+    @Column(name = "address", nullable = false)
     private String address;
 
     public UserInfo() {
@@ -74,11 +74,11 @@ public class UserInfo {
     }
 }
 /**
- * CREATE TABLE USER_INFOR(
- ID_USER INT FOREIGN KEY (ID_USER) REFERENCES USERS(ID)  ON DELETE CASCADE  ON UPDATE CASCADE,
+ * CREATE TABLE user_info(
+ id INT FOREIGN KEY (ID_USER) REFERENCES USERS(ID)  ON DELETE CASCADE  ON UPDATE CASCADE,
  name CHAR(30) NOT NULL,
- ADDRESS CHAR(30) CONSTRAINT diachi NOT NULL ,
- PHONE INT CONSTRAINT PHONE NOT NULL,
+ address CHAR(30) CONSTRAINT diachi NOT NULL ,
+ phone INT CONSTRAINT PHONE NOT NULL,
  PRIMARY KEY(ID_USER)
  )
  */

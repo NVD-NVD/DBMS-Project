@@ -2,7 +2,11 @@ package com.ute.dbms.webshop.controller;
 
 import com.ute.dbms.webshop.entity.FileUploadUtil;
 import com.ute.dbms.webshop.entity.Product;
+import com.ute.dbms.webshop.entity.Role;
+import com.ute.dbms.webshop.entity.User;
 import com.ute.dbms.webshop.repository.ProductRepository;
+import com.ute.dbms.webshop.repository.RoleRepository;
+import com.ute.dbms.webshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,27 +26,29 @@ import java.util.List;
 public class AdmiController {
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private UserRepository userRepository;
     @GetMapping()
     public String adminPage(){
         return "/admin";
     }
-    @GetMapping("/product/list")
+    @GetMapping("/product/sanpham")
     public String adminPage(Model model){
         List<Product> productList = productRepository.findAll();
         model.addAttribute("products", productList);
         for(Product product : productList){
             System.out.println(product.toString());
         }
-        return "/admin";
+        return "/admin-sanpham";
     }
-    @GetMapping("/products/add")
+    @GetMapping("/products/sanpham/add")
     public String addProduct(HttpServletRequest request, Product product, MultipartFile multipartFile){
         if(request.isUserInRole("ADMIN")){
             return "/add-product";
         }
         return "/index";
     }
-    @PostMapping("/products/save")
+    @PostMapping("/products/sanpham/save")
     public String AddProduct(@Valid Product product, MultipartFile multipartFile, HttpServletRequest request) throws IOException {
 
         if (request.isUserInRole("ADMIN")) {
@@ -56,8 +62,18 @@ public class AdmiController {
             String fileUrl = "images/products/" + fileName;
             product1.setImgurl(fileUrl);
             productRepository.save(product1);
-            return "redirect:/admin/product/list";
+            return "redirect:/admin/product/sanpham";
         }
         return "/index";
     }
+
+    @GetMapping("/product/nhanvien")
+    public String nhanvien(Model model){
+        List<User> list = userRepository.findAllByRoles("ROLE_STAFF");
+        model.addAttribute("accounts", list);
+
+        return "/admin-nv";
+    }
+
+
 }
