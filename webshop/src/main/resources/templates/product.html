@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/sass/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/sass/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./assets/sass/product.css">
+    <link rel="stylesheet" href="./assets/sass/reset.css">
+    <title>Sản phẩm</title>
+</head>
+
+<body>
+    <div th:replace="_header::_header_"></div>
+    <div th:replace="_feature::_feature_"></div>
+    <div th:replace="_navigation::_navigation_"></div>
+
+    <!-- Start Product -->
+
+    <div class="product">
+        <div class="container">
+            <div class="product__banner">
+                <div class="center">
+                    <h2>Thông tin sản phẩm</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="sale__policy">
+                        <h3>
+                            <span>Chính sách bán hàng</span>
+                        </h3>
+
+                        <div class="sale__policy-content">
+                            <ul>
+                                <li>Giao hàng toàn quốc</li>
+                                <li>Thanh toán khi nhận hàng</li>
+                                <li>Đổi trả trong 15 ngày</li>
+                                <li>Hoàn ngay tiền mặt</li>
+                                <li>Đảm bảo chất lượng</li>
+                                <li>Miễn phí vận chuyển đơn hàng từ
+                                    <span>1 triệu trở lên</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="buy__policy">
+                            <h3>
+                                <span>Hướng dẫn mua hàng</span>
+                            </h3>
+                            <div class="buy__policy-content">
+                                <ul>
+                                    <li>Mua hàng trực tuyến trên website
+                                        <a
+                                            href="http://127.0.0.1:5500/FE/trang-chu.html">http://127.0.0.1:5500/FE/trang-chu.html</a>
+                                    </li>
+                                    <li>Gọi sdt <span>0903 113 114</span> để mua hàng</li>
+                                    <li>Mua tại shop đ/c : <span>1 Võ Văn Ngân, Linh Chiểu, Thủ Đức, Thành phố Hồ Chí
+                                            Minh</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="product__block">
+                        <div class="row">
+                            <form th:href="@{product/cart/add}">
+                                <div class="col-6 sp-wrap">
+                                    <div class="sp-img">
+                                        <a><img th:src="${product.imgurl}" alt=""></a>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 product-detail">
+                                    <li><h2 th:text="${product.name}"></h2></li>
+                                    <li><h2 class="price" th:text="${product.price}"></h2></li>
+                                    <span>Mã SP :</span>
+
+                                    <div class="product-description">
+                                        <p th:text="*{context}"></p>
+                                    </div>
+
+                                    <div class="size">
+                                        Size:
+                                        <div class="product-size">
+                                            <p>S</p>
+                                        </div>
+                                        <div class="product-size">
+                                            <p>M</p>
+                                        </div>
+                                        <div class="product-size">
+                                            <p>L</p>
+                                        </div>
+                                        <div class="product-size">
+                                            <p>XL</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="quantity">
+                                        <div class="minusBtn minusText">
+                                            <i class="fas fa-minus"></i>
+                                        </div>
+                                        <input type="number" value="1">
+                                        <div class="plusBtn plusText">
+                                            <i class="fas fa-plus"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="addToCart">
+                                        <div class="btn btn-danger buyButton">
+                                            <i class="fas fa-shopping-cart paddingRightCart">
+                                                <input type="submit" alt="Chọn mua">
+                                            </i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Product -->
+
+    <hr>
+    <div th:replace="_footer::_footer_"></div>
+</body>
+
+</html>

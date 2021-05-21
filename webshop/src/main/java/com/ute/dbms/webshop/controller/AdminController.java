@@ -1,13 +1,11 @@
 package com.ute.dbms.webshop.controller;
 
-import com.ute.dbms.webshop.entity.FileUploadUtil;
-import com.ute.dbms.webshop.entity.Product;
-import com.ute.dbms.webshop.entity.Role;
-import com.ute.dbms.webshop.entity.User;
+import com.ute.dbms.webshop.entity.*;
 import com.ute.dbms.webshop.repository.ProductRepository;
 import com.ute.dbms.webshop.repository.RoleRepository;
 import com.ute.dbms.webshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -19,15 +17,20 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
 
 @Controller
 @RequestMapping(value = "/admin")
-public class AdmiController {
+public class AdminController {
+    @Autowired
+    private UserRepository  userRepository;
+    @Autowired
+    private RoleRepository roleRepository;
     @Autowired
     private ProductRepository productRepository;
     @Autowired
-    private UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
     @GetMapping()
     public String adminPage(){
         return "/admin";
@@ -67,10 +70,42 @@ public class AdmiController {
     @GetMapping("/nhanvien")
     public String nhanvien(Model model){
         List<User> list = userRepository.findAll();
+        for (User user : list) {
+            for (Role role : user.getRoles()) {
+                System.out.println(role);
+                if(role.equals("ROLE_STAFF"))
+                    list.remove(user);
+            }
+        }
         model.addAttribute("accounts", list);
 
         return "/admin-nv";
     }
-
-
+    @GetMapping("/nhanvien/add")
+    public String ThemNhanVien(HttpServletRequest request, Model model){
+        if(request.isUserInRole("ADMIN")){
+            model.addAttribute("userForm", new UserForm());
+            return "/add-nv";
+        }
+        return "/admin-nv";
+    }
+    @PostMapping("/nhanvien/register")
+    public String register(@Valid UserForm userForm){
+        System.out.println(userForm.getEmail());
+        if(userRepository.findByEmail(userForm.getEmail()) == null){
+            User oth = new User();
+            oth.setEmail(userForm.getEmail());
+            oth.setPassword(passwordEncoder.encode(userForm.getPassword()));
+            userRepository.save(oth);
+            UserInfo userInfo = new UserInfo(userForm.getUserName(), userForm.getPhone(), userForm.getAddress());
+            oth.setUserInfo(userInfo);
+            userInfo.setUser(oth);
+            HashSet<Role> roles = new HashSet<>();
+            roles.add(roleRepository.findByRoleName("ROLE_STAFF"));
+            oth.setRoles(roles);
+            userRepository.save(oth);
+            return "redirect:/admin-nv";
+        }
+        return "redirect:/signup?error";
+    }
 }

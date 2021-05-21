@@ -1,17 +1,15 @@
 package com.ute.dbms.webshop.entity;
 
-import javax.persistence.Column;
-
 public class UserForm {
     private String email;
     private String password;
     private String userName;
-    private Long phone;
+    private String phone;
     private String address;
 
     public UserForm(){}
 
-    public UserForm(String email, String password, String userName, Long phone, String address) {
+    public UserForm(String email, String password, String userName, String phone, String address) {
         this.email = email;
         this.password = password;
         this.userName = userName;
@@ -43,11 +41,11 @@ public class UserForm {
         this.userName = userName;
     }
 
-    public Long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

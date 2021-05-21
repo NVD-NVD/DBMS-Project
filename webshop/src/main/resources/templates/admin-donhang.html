@@ -18,138 +18,68 @@
 </head>
 
 <body>
-<!-- Start Header -->
-<div th:replace="_header::_header_"></div>
-<!-- End Header -->
+  <div th:replace="_header::_header_"></div>
+  <div th:replace="_feature::_feature_"></div>
 
-<!-- Start Feature -->
-
-<div class="feature">
-  <div class="container">
-    <div class="feature__content">
-      <div class="feature__content-logo">
-        <img src="images/logo-web.jpg" alt="">
-      </div>
-
-      <div class="feature__content-search">
-        <input type="text" placeholder="Tìm kiếm ....">
-        <span class="input-group-btn">
-                            <button class="btn btn-search" title="Search" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </span>
-      </div>
-
-    </div>
-  </div>
-</div>
-<!-- End Feature -->
-
-<!-- Start Navigation -->
-
-<div class="navigation">
-  <div class="container">
-    <div class="navigation__menu">
-      <ul>
-        <li><a href="trang-chu.html">ĐƠN HÀNG</a></li>
-        <li><a href="">QL SẢN PHẨM</a></li>
-        <li><a href="">QL NHÂN VIÊN</a></li>
-        <li><a href="">DOANH THU</a></li>
-        <li><a href="">tinh sau</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- End Navigation -->
-<!-- Start Order -->
-
-<div class="order">
-  <div class="container">
-    <div class="order__content">
-      <h3 class="title">
-        <span>Kiểm tra đơn hàng</span>
-      </h3>
-    </div>
-
-    <div class="order__block">
-      <div class="order__block-info">
-        <table class="table product__list">
-          <thead>
-          <tr>
-            <th>ID User</th>
-            <th>ID Order</th>
-            <th>Ngày lập Order</th>
-            <th>Tổng tiền</th>
-            <th></th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td class="id__user">US001</td>
-            <td class="id__order">OD001</td>
-            <td class="date__order">01/01/2021</td>
-            <td class="price__order">300.000đ</td>
-            <td class="detail__order">
-              <a href="detailorder.html">
-                <i class="fas fa-info-circle"></i>
-              </a>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Order -->
-<hr>
-
-<!-- Start Footer -->
-
-<div class="footer">
-  <div class="container">
-    <div class="footer__content">
-      <div class="footer__content-help">
-        <h2>HỖ TRỢ</h2>
+  <!-- Start Navigation -->
+  <div class="navigation">
+    <div class="container">
+      <div class="navigation__menu">
         <ul>
-          <li><i class="fas fa-question"></i> Hướng dẫn thanh toán</li>
-          <li><i class="fas fa-reply"></i> Quy định đổi trả</li>
-          <li><i class="fas fa-shield-alt"></i> Chính sách bảo mật</li>
-          <li><i class="fas fa-tshirt"></i> Chính sách bán hàng</li>
-        </ul>
-      </div>
-
-      <div class="footer__content-intro">
-        <h2>GIỚI THIỆU</h2>
-        <ul>
-          <li><i class="fas fa-map-marker"></i> 1 Võ Văn Ngân, Linh Chiểu, Thủ Đức, Thành phố Hồ Chí Minh
-          </li>
-          <li><i class="fas fa-phone-alt"></i> 0903 113 114</li>
-          <li><i class="fas fa-envelope"></i><a href="">admin@gmail.com</a></li>
-          <li><i class="fas fa-globe-asia"></i> <a
-                  href="http://127.0.0.1:5500/FE/trang-chu.html">http://127.0.0.1:5500/FE/trang-chu.html</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="footer__content-social">
-        <h2>MẠNG XÃ HỘI</h2>
-        <ul>
-          <li><a href="facebook.com"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="instagam.com"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="gmail.com"><i class="fab fa-google"></i></a></li>
-          <li><a href="youtube.com"><i class="fab fa-youtube"></i></a></li>
+          <li><a href="trang-chu.html">ĐƠN HÀNG</a></li>
+          <li><a href="">QL SẢN PHẨM</a></li>
+          <li><a href="">QL NHÂN VIÊN</a></li>
+          <li><a href="">DOANH THU</a></li>
+          <li><a href="">tinh sau</a></li>
         </ul>
       </div>
     </div>
   </div>
-</div>
+  <!-- End Navigation -->
+  <!-- Start Order -->
+  <div class="order">
+    <div class="container">
+      <div class="order__content">
+        <h3 class="title">
+          <span>Kiểm tra đơn hàng</span>
+        </h3>
+      </div>
 
-<!-- End Footer -->
+      <div class="order__block">
+        <div class="order__block-info">
+          <table class="table product__list">
+            <thead>
+            <tr>
+              <th>ID User</th>
+              <th>ID Order</th>
+              <th>Ngày lập Order</th>
+              <th>Tổng tiền</th>
+              <th></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="id__user">US001</td>
+              <td class="id__order">OD001</td>
+              <td class="date__order">01/01/2021</td>
+              <td class="price__order">300.000đ</td>
+              <td class="detail__order">
+                <a href="detailorder.html">
+                  <i class="fas fa-info-circle"></i>
+                </a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Order -->
 
-
+  <hr>
+  <div th:replace="_footer::_footer_"></div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./js/script.js"></script>

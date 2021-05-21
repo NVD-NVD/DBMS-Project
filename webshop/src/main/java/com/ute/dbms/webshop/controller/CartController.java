@@ -26,18 +26,11 @@ public class CartController {
 
     @GetMapping(value = "/cart/{id}")
     public String cart(@PathVariable("id") int id, Model model){
-        if(productRepository.findById(id) ==null){
+        if(productRepository.findById(id) == null){
             System.out.println("\n\n null \n\n");
         }
-        System.out.println("\n\n" + id);
-        Product product = productRepository.findById(id);
-        System.out.println("\n\n" + product.getId());
-        System.out.println("\n\n" + product.getName());
-        System.out.println("\n\n" + product.getImgurl());
-        System.out.println("\n\n" + product.getSoLuong()    );
-        System.out.println(" \n\n");
         model.addAttribute("product", product);
-        return "cart";
+        return "detailorder";
     }
     @PostMapping(value = "/cart/add")
     public String addCart(@Valid Product product, HttpServletRequest request){

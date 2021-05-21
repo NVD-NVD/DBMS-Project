@@ -10,12 +10,12 @@ import com.ute.dbms.webshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +25,7 @@ import java.util.HashSet;
 @Controller
 public class MainController {
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository  userRepository;
     @Autowired
     private RoleRepository roleRepository;
     @Autowired
@@ -67,11 +67,6 @@ public class MainController {
             oth.setEmail(userForm.getEmail());
             oth.setPassword(passwordEncoder.encode(userForm.getPassword()));
             userRepository.save(oth);
-//            userRepository.save(oth);
-//            System.out.println(user.getEmail());
-//            UserInfo userInfo = new UserInfo(userForm.getUserName(), userForm.getPhone(), userForm.getAddress());
-//            userInfo.setId(user.getId());
-//            user.setUserInfo(userInfo);
             UserInfo userInfo = new UserInfo(userForm.getUserName(), userForm.getPhone(), userForm.getAddress());
             oth.setUserInfo(userInfo);
             userInfo.setUser(oth);

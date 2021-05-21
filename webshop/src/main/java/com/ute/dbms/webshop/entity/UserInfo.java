@@ -24,14 +24,14 @@ public class UserInfo {
     private String userName;
 
     @Column(name = "phone", nullable = false)
-    private Long phone;
+    private String phone;
 
     @Column(name = "address", nullable = false)
     private String address;
 
     public UserInfo() {
     }
-    public UserInfo(String userName, long phone, String address) {
+    public UserInfo(String userName, String phone, String address) {
         this.userName = userName;
         this.phone = phone;
         this.address = address;
@@ -54,10 +54,10 @@ public class UserInfo {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
     public String getAddress() {
@@ -68,6 +68,12 @@ public class UserInfo {
     }
 
     public String toString(){
+        if(userName == null)
+            userName = null;
+        if(phone == null)
+            phone = null;
+        if(address == null)
+            address = null;
         return "userName= " + userName +
                 ",phone= " + phone +
                 ",address=" + address;

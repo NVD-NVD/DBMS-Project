@@ -1,11 +1,9 @@
 package com.ute.dbms.webshop.config;
 
-import java.util.HashSet;
-import java.util.List;
-
 import com.ute.dbms.webshop.entity.Product;
 import com.ute.dbms.webshop.entity.Role;
 import com.ute.dbms.webshop.entity.User;
+import com.ute.dbms.webshop.entity.UserInfo;
 import com.ute.dbms.webshop.repository.ProductRepository;
 import com.ute.dbms.webshop.repository.RoleRepository;
 import com.ute.dbms.webshop.repository.UserRepository;
@@ -13,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import java.util.HashSet;
 
 @Component
 public class DataSeedingListener implements CommandLineRunner {
@@ -49,6 +49,9 @@ public class DataSeedingListener implements CommandLineRunner {
             roles.add(roleRepository.findByRoleName("ROLE_ADMIN"));
             roles.add(roleRepository.findByRoleName("ROLE_MEMBER"));
             admin.setRoles(roles);
+            UserInfo userInfo = new UserInfo("admin","0989542812","thu duc");
+            admin.setUserInfo(userInfo);
+            userInfo.setUser(admin);
             userRepository.save(admin);
         }
 
@@ -60,6 +63,9 @@ public class DataSeedingListener implements CommandLineRunner {
             HashSet<Role> roles = new HashSet<>();
             roles.add(roleRepository.findByRoleName("ROLE_MEMBER"));
             user.setRoles(roles);
+            UserInfo userInfo = new UserInfo("member","0989542812","thu duc");
+            user.setUserInfo(userInfo);
+            userInfo.setUser(user);
             userRepository.save(user);
         }
         // Products

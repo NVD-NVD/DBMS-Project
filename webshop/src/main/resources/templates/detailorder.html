@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/sass/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/sass/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./assets/sass/detailorder.css">
+    <link rel="stylesheet" href="./assets/sass/reset.css">
+    <title>Chi tiết đơn hàng</title>
+
+</head>
+
+<body>
+    <div th:replace="_header::_header_"></div>
+    <div th:replace="_feature::_feature_"></div>
+    <div th:replace="_navigation::_navigation_"></div>
+
+    <!-- Start Detail -->
+    <div class="detail">
+        <div class="container">
+            <div class="detail__content">
+                <div class="title">
+                    <h3>
+                        <span>Chi tiết đơn hàng</span>
+                    </h3>
+                </div>
+                <div class="detail__order">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>Nhập mã đơn hàng</label>
+                            <input type="text" class="form-control" placeholder="Mã số đơn hàng (VD:OD001)"
+                                required="required">
+                            <button class="btn btn-primary">Xem ngay</button>
+                        </div>
+                    </form>
+
+                    <div class="detail__info">
+                        <h2>Thông tin đơn hàng</h2>
+                        <div class="detail__table">
+                            <table class="table table-mycart">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Thành tiền</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr class="bar">
+                                        <td class="stt">1</td>
+                                        <td><a href="./assets/images/item_1.jpg">
+                                                Áo sơ mi nữ công sở
+                                            </a></td>
+                                        <td>300.000đ</td>
+                                        <td>1</td>
+                                        <td>300.000đ</td>
+                                    </tr>
+                                    <tr class="payment-info">
+                                        <td colspan="3" class="border-right">
+                                            <div class="customer__content">
+                                                <div class="customer__content-title">
+                                                    <span>Thông tin giao hàng</span>
+                                                </div>
+                                                <div>
+                                                    [Anh/Chị]
+                                                    <b>Long</b>
+                                                </div>
+                                                <div>
+                                                    [Email]
+                                                    <b>long@gmail.com</b>
+                                                </div>
+                                                <div>[SDT]
+                                                    <b>0903 115 116</b>
+                                                </div>
+                                                <div>
+                                                    [Địa chỉ]
+                                                    <b>18/1B Trần Quý Khoách, Tân Định, Q1, Tp.HCM</b>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td colspan="4" class="payment">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <b>Tổng tiền</b>
+                                                        </td>
+
+                                                        <td class="text-right">
+                                                            <b class="total-payment">
+                                                                300.000đ
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <b>Phí vận chuyển</b>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <b class="total-payment">0đ</b>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <b>Tổng tiền phải thanh toán</b>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <b class="total-payment">300.000đ</b>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr class="order-stt">
+                                                        <td colspan="2">
+                                                            <div>Trang thái đơn hàng</div>
+                                                            <div><b>Chưa</b></div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Detail -->
+    <hr>
+    <div th:replace="_footer::_footer_"></div>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/sass/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/sass/reset.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/sass/adminPage.css}">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body>
+<div th:replace="_header::_header_"></div>
+<!-- End Header -->
+
+<!-- Start Feature -->
+<div class="feature">
+    <div class="container">
+        <div class="feature__content">
+            <div class="feature__content-logo">
+                <img src="images/logo-web.jpg" alt="">
+            </div>
+
+            <div class="feature__content-search">
+                <input type="text" placeholder="Tìm kiếm ....">
+                <span class="input-group-btn">
+                            <button class="btn btn-search" title="Search" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </span>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Feature -->
+
+<!-- Start Navigation -->
+<div class="navigation">
+    <div class="container">
+        <div class="navigation__menu">
+            <ul>
+                <li><a href="trang-chu.html">TRANG CHỦ</a></li>
+                <li><a href="">ÁO THUN</a></li>
+                <li><a href="">VÁY</a></li>
+                <li><a href="">PHỤ KIỆN</a></li>
+                <li><a href="">LIÊN HỆ</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Navigation -->
+
+<!-- Start Slide Product -->
+<div class="slider owl-theme">
+    <div class="container owl-carousel">
+        <div class="item">
+            <img src="images/slider_3.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="images/slider_4.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="images/slider_5.jpg" alt="">
+        </div>
+    </div>
+</div>
+<!-- End Slide Product -->
+<div class="container my-5">
+    <h3>Thông tin nhân viên</h3>
+    <div class="product">
+        <div class="product-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/admin/nhanvien/register}" th:object="${userForm}" method="post">
+                    <div class="form-control w3layouts">
+                        <input type="email" id="email" name="email" th:field="*{email}" placeholder="mail@example.com"
+                               title="Please enter a valid email" required="">
+                    </div>
+
+                    <div class="form-control agileinfo">
+                        <input type="password" class="lock" name="password" th:field="*{password}" placeholder="Password" id="password"
+                               required="">
+                    </div>
+                    <div class="form-control agileinfo">
+                        <input type="text" class="lock" name="name" th:field="*{userName}" placeholder="Name" id="name"
+                               required="">
+                    </div>
+                    <div class="form-control agileinfo">
+                        <input type="text" class="lock" name="phone" th:field="*{phone}" placeholder="Phone" id="phone"
+                               required="">
+                    </div>
+                    <div class="form-control agileinfo">
+                        <input type="text" class="lock" name="address" th:field="*{address}" placeholder="Address" id="address"
+                               required="">
+                    </div>
+                    <input type="submit" class="register" value="Đăng ký">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start Policy -->
+
+<div class="policy">
+    <div class="container">
+        <div class="policy__content">
+            <div class="policy__content-item">
+                <i class="fas fa-sync-alt"></i> HOÀN TRẢ TRONG 30 NGÀY
+            </div>
+            <div class="policy__content-item">
+                <i class="fas fa-truck"></i> GIAO HÀNG TẬN NHÀ
+            </div>
+            <div class="policy__content-item">
+                <i class="fas fa-money-bill-wave"></i> THANH TOÁN LINH HOẠT
+            </div>
+            <div class="policy__content-item">
+                <i class="fas fa-users"></i> HỖ TRỢ NHANH CHÓNG
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Policy -->
+<hr>
+
+<!-- Start Footer -->
+
+<div class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <div class="footer__content-help">
+                <h2>HỖ TRỢ</h2>
+                <ul>
+                    <li><i class="fas fa-question"></i> Hướng dẫn thanh toán</li>
+                    <li><i class="fas fa-reply"></i> Quy định đổi trả</li>
+                    <li><i class="fas fa-shield-alt"></i> Chính sách bảo mật</li>
+                    <li><i class="fas fa-tshirt"></i> Chính sách bán hàng</li>
+                </ul>
+            </div>
+
+            <div class="footer__content-intro">
+                <h2>GIỚI THIỆU</h2>
+                <ul>
+                    <li><i class="fas fa-map-marker"></i> 1 Võ Văn Ngân, Linh Chiểu, Thủ Đức, Thành phố Hồ Chí Minh
+                    </li>
+                    <li><i class="fas fa-phone-alt"></i> 0903 113 114</li>
+                    <li><i class="fas fa-envelope"></i><a href="">admin@gmail.com</a></li>
+                    <li><i class="fas fa-globe-asia"></i> <a
+                            href="http://127.0.0.1:5500/FE/trang-chu.html">http://127.0.0.1:5500/FE/trang-chu.html</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__content-social">
+                <h2>MẠNG XÃ HỘI</h2>
+                <ul>
+                    <li><a href="facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="instagam.com"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="gmail.com"><i class="fab fa-google"></i></a></li>
+                    <li><a href="youtube.com"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

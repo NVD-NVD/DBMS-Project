@@ -1,9 +1,8 @@
 package com.ute.dbms.webshop.entity;
 
 
-import java.util.Set;
-
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "ROLE")
@@ -50,4 +49,5 @@ public class Role{
     public void setUsers(Set<User> users) {
         this.users = users;
     }
+
 }

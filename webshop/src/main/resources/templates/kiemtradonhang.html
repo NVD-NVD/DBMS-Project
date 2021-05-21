@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/sass/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/sass/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./assets/sass/kiemtradonhang.css">
+    <link rel="stylesheet" href="./assets/sass/reset.css">
+    <title>Kiểm tra đơn hàng</title>
+
+</head>
+
+<body>
+    <div th:replace="_header::_header_"></div>
+    <div th:replace="_feature::_feature_"></div>
+    <div th:replace="_navigation::_navigation_"></div>
+
+    <!-- Start Order -->
+    <div class="order">
+        <div class="container">
+            <div class="order__content">
+                <h3 class="title">
+                    <span>Kiểm tra đơn hàng</span>
+                </h3>
+            </div>
+
+            <div class="order__block">
+                <div class="order__block-info">
+                    <table class="table product__list">
+                        <thead>
+                            <tr>
+                                <th>ID User</th>
+                                <th>ID Order</th>
+                                <th>Ngày lập Order</th>
+                                <th>Tổng tiền</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="id__user">US001</td>
+                                <td class="id__order">OD001</td>
+                                <td class="date__order">01/01/2021</td>
+                                <td class="price__order">300.000đ</td>
+                                <td class="detail__order">
+                                    <a href="detailorder.html">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Order -->
+
+    <div th:replace="_footer::_footer_"></div>
+</body>
+
+</html>
