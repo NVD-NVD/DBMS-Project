@@ -171,6 +171,7 @@ Version : 1.0.0
   padding: 20px;
   color: white;
   font-weight: 500;
+  text-transform: uppercase;
 }
 .navigation .container .navigation__menu ul li a:hover {
   background: #f46164;
