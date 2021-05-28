@@ -1,8 +1,7 @@
 package com.ute.dbms.webshop.entity;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "product")
@@ -22,6 +21,8 @@ public class Product {
     @Column(name = "imgUrl")
     private String imgurl;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private Collection<Detail> detail;
     public Product() {
     }
 

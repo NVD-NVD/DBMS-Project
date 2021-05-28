@@ -3,6 +3,7 @@ package com.ute.dbms.webshop.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
@@ -34,6 +35,9 @@ public class User implements Serializable {
     @PrimaryKeyJoinColumn
     private UserInfo userInfo;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Collection<Bill> bill;
 
     public User() {
     }

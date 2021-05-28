@@ -1,7 +1,6 @@
 package com.ute.dbms.webshop.entity;
 
 import javax.persistence.*;
-import java.util.Optional;
 
 @Entity
 @Table(name = "cart")
