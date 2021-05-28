@@ -5,7 +5,6 @@ import com.ute.dbms.webshop.entity.User;
 import com.ute.dbms.webshop.repository.ProductRepository;
 import com.ute.dbms.webshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,25 +16,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping(value = "/product")
+@RequestMapping("/cart")
 public class CartController {
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping(value = "/cart/{id}")
+    @GetMapping(value = "/{id}")
     public String cart(@PathVariable("id") int id, Model model){
-        if(productRepository.findById(id) == null){
+        Product product = productRepository.findById(id);
+        if(product == null){
             System.out.println("\n\n null \n\n");
         }
         model.addAttribute("product", product);
-        return "detailorder";
+        return "product";
     }
-    @PostMapping(value = "/cart/add")
+    @PostMapping(value = "/add")
     public String addCart(@Valid Product product, HttpServletRequest request){
         User user = userRepository.findByEmail(request.getUserPrincipal().getName());
-        
+
         return "redirect:/";
     }
 }

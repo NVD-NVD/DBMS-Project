@@ -12,7 +12,7 @@
                 </div>
                 <div class="header__menu">
                     <ul>
-                        <li><a th:href="@{/detailorder.html}"><i class="fas fa-pen-square"></i> Kiểm tra đơn hàng</a></li>
+                        <li><a th:href="@{/detailorder}"><i class="fas fa-pen-square"></i> Kiểm tra đơn hàng</a></li>
                         <li><a th:href="@{/cart}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                         <div th:switch="${#request.userPrincipal}">
                             <div th:case="null">
