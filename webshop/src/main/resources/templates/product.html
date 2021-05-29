@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./assets/sass/owl.carousel.min.css">
-    <link rel="stylesheet" href="./assets/sass/owl.theme.default.min.css">
-    <link rel="stylesheet" href="./assets/sass/product.css">
-    <link rel="stylesheet" href="./assets/sass/reset.css">
+    <link rel="stylesheet" th:href="@{/sass/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/sass/owl.theme.default.min.css}">
+    <link rel="stylesheet" th:href="@{/css/product.css}">
+    <link rel="stylesheet" th:href="@{/css/product.scss}">
+    <link rel="stylesheet" th:href="@{/sass/reset.css}">
     <title>Sản phẩm</title>
 </head>
 
@@ -71,7 +72,7 @@
                 <div class="col-9">
                     <div class="product__block">
                         <div class="row">
-                            <form th:href="@{product/cart/add}">
+                            <form th:action="@{user/cart/add}" method="post" th:object="${product}">
                                 <div class="col-6 sp-wrap">
                                     <div class="sp-img">
                                         <a><img th:src="${product.imgurl}" alt=""></a>

@@ -17,6 +17,13 @@ public class UserForm {
         this.address = address;
     }
 
+    public UserForm(String email, String userName, String phone, String address) {
+        this.email = email;
+        this.userName = userName;
+        this.phone = phone;
+        this.address = address;
+    }
+
     public String getEmail() {
         return email;
     }

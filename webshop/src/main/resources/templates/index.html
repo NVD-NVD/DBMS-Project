@@ -53,7 +53,7 @@
                                 <div class="item__info">
                                     <a th:text="${product.context}"></a>
                                     <span th:text="${product.price}"></span>
-                                    <a class="btn-add" th:href="@{/product/cart/{id}(id=${product.id})}"><i class="fas fa-cart-plus"></i> Mua</a>
+                                    <a class="btn-add" th:href="@{/cart/{id}(id=${product.id})}"><i class="fas fa-cart-plus"></i> Mua</a>
                                 </div>
                         </div>
                     </tr>

@@ -56,7 +56,7 @@ public class AdminController {
             Product product1 = new Product(product.getName()
                     ,product.getPrice()
                     ,product.getContext()
-                    ,product.getSoLuong());
+                    ,product.getQuantily());
             String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
             String currentDirectory = System.getProperty("user.dir");
             FileUploadUtil.saveFile(currentDirectory + "/src/main/resources/static/images/products/", fileName, multipartFile);

@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./assets/sass/owl.carousel.min.css">
-    <link rel="stylesheet" href="./assets/sass/owl.theme.default.min.css">
-    <link rel="stylesheet" href="./assets/sass/detailorder.css">
-    <link rel="stylesheet" href="./assets/sass/reset.css">
+    <link rel="stylesheet" th:href="@{/sass/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/sass/sass/owl.theme.default.min.css}">
+    <link rel="stylesheet" th:href="@{/sass/sass/detailorder.css}">
+    <link rel="stylesheet" th:href="@{/sass/sass/reset.css}">
     <title>Kiểm Tra Đơn Hàng</title>
 
 </head>
@@ -30,18 +30,19 @@
                     </h3>
                 </div>
                 <div class="detail__order">
-                    <form class="form-inline">
+                    <form class="form-inline" th:action="@{user/detailorder}" th:object="${bill}" method="post">
                         <div class="form-group">
                             <label>Nhập mã đơn hàng</label>
                             <input type="text" class="form-control" placeholder="Mã số đơn hàng (VD:OD001)"
-                                required="required">
+                                   required="required" th:field="*{id}">
                             <button class="btn btn-primary">Xem ngay</button>
                         </div>
                     </form>
 
-                    <div class="detail__info">
+                    <div class="detail__info" th:switch="${detailList}">
                         <h2>Thông tin đơn hàng</h2>
-                        <div class="detail__table">
+                        <h2 th:case="null">No Product yet!</h2>
+                        <div th:case="*" class="detail__table">
                             <table class="table table-mycart">
                                 <thead>
                                     <tr>
@@ -52,37 +53,33 @@
                                         <th>Thành tiền</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-                                    <tr class="bar">
-                                        <td class="stt">1</td>
-                                        <td><a href="./assets/images/item_1.jpg">
-                                                Áo sơ mi nữ công sở
-                                            </a></td>
-                                        <td>300.000đ</td>
-                                        <td>1</td>
-                                        <td>300.000đ</td>
+                                    <tr th:each="billForm : ${billFormList}">
+                                        <td th:text="${billForm.namePro}"></td>
+                                        <td th:text="${billForm.price}"></td>
+                                        <th th:text="${billForm.quantily}"></th>
+                                        <th th:text="${billForm.sum}"</th>
                                     </tr>
                                     <tr class="payment-info">
                                         <td colspan="3" class="border-right">
-                                            <div class="customer__content">
+                                            <div class="customer__content" th:object="${userForm}">
                                                 <div class="customer__content-title">
                                                     <span>Thông tin giao hàng</span>
                                                 </div>
                                                 <div>
                                                     [Anh/Chị]
-                                                    <b>Long</b>
+                                                    <b th:text="${userForm.userName}"></b>
                                                 </div>
                                                 <div>
                                                     [Email]
-                                                    <b>long@gmail.com</b>
+                                                    <b th:text="${userForm.email}"></b>
                                                 </div>
                                                 <div>[SDT]
-                                                    <b>0903 115 116</b>
+                                                    <b th:text="${userForm.phone}"></b>
                                                 </div>
                                                 <div>
                                                     [Địa chỉ]
-                                                    <b>18/1B Trần Quý Khoách, Tân Định, Q1, Tp.HCM</b>
+                                                    <b th:text="${userForm.address}"></b>
                                                 </div>
                                             </div>
                                         </td>
@@ -95,8 +92,8 @@
                                                         </td>
 
                                                         <td class="text-right">
-                                                            <b class="total-payment">
-                                                                300.000đ
+                                                            <b class="total-payment" th:text="${sumBill}">
+
                                                             </b>
                                                         </td>
                                                     </tr>
@@ -115,14 +112,17 @@
                                                             <b>Tổng tiền phải thanh toán</b>
                                                         </td>
                                                         <td class="text-right">
-                                                            <b class="total-payment">300.000đ</b>
+                                                            <b class="total-payment" th:text="${sumBill}"></b>
                                                         </td>
                                                     </tr>
 
                                                     <tr class="order-stt">
                                                         <td colspan="2">
                                                             <div>Trang thái đơn hàng</div>
-                                                            <div><b>Chưa</b></div>
+                                                            <div th:switch="${status}">
+                                                                <b th:case="True">Đã xữ lý</b>
+                                                                <b th:case="*">Chưa xữ lý</b>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 </tbody>

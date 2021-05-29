@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" th:href="@{/sass/owl.carousel.min.css}">
+  <link rel="stylesheet" th:href="@{/sass/sass/owl.theme.default.min.css}">
+  <link rel="stylesheet" th:href="@{/sass/sass/kiemtradonhang.css}">
+  <link rel="stylesheet" th:href="@{/sass/sass/reset.css}">
+  <title>Kiểm tra đơn hàng</title>
+
+</head>
+
+<body>
+<div th:replace="_header::_header_"></div>
+<div th:replace="_feature::_feature_"></div>
+<div th:replace="_navigation::_navigation_"></div>
+
+<!-- Start Order -->
+<div class="order">
+  <div class="container">
+    <div class="order__content">
+      <h3 class="title">
+        <span>Kiểm tra đơn hàng</span>
+      </h3>
+    </div>
+
+    <div class="detail__order">
+      <form class="form-inline" th:action="@{/user/detailorder}" th:object="${bill}" method="post">
+        <div class="form-group">
+          <label>Nhập mã đơn hàng</label>
+          <input type="text" class="form-control" placeholder="Mã số đơn hàng (VD:OD001)"
+                 required="required" th:field="${idBill}">
+          <button class="btn btn-primary">Xem ngay</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- End Order -->
+
+<div th:replace="_footer::_footer_"></div>
+</body>
+
+</html>

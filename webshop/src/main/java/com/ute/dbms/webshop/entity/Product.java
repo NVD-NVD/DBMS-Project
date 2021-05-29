@@ -17,7 +17,7 @@ public class Product {
     @Column(name = "context", nullable = false)
     private String context;
     @Column(name = "soluong", nullable = false)
-    private int soLuong;
+    private int quantily;
     @Column(name = "imgUrl")
     private String imgurl;
 
@@ -26,35 +26,35 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String name, int price, String context, int soLuong) {
+    public Product(int id, String name, int price, String context, int quantily) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.context = context;
-        this.soLuong = soLuong;
+        this.quantily = quantily;
     }
 
-    public Product(int id, String name, int price, String context, int soLuong, String imgurl) {
+    public Product(int id, String name, int price, String context, int quantily, String imgurl) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.context = context;
-        this.soLuong = soLuong;
+        this.quantily = quantily;
         this.imgurl = imgurl;
     }
 
-    public Product(String name, int price, String context, int soLuong) {
+    public Product(String name, int price, String context, int quantily) {
         this.name = name;
         this.price = price;
         this.context = context;
-        this.soLuong = soLuong;
+        this.quantily = quantily;
     }
 
-    public Product(String name, int price, String context, int soLuong, String imgurl) {
+    public Product(String name, int price, String context, int quantily, String imgurl) {
         this.name = name;
         this.price = price;
         this.context = context;
-        this.soLuong = soLuong;
+        this.quantily = quantily;
         this.imgurl = imgurl;
     }
 
@@ -90,12 +90,12 @@ public class Product {
         this.context = context;
     }
 
-    public int getSoLuong() {
-        return soLuong;
+    public int getQuantily() {
+        return quantily;
     }
 
-    public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+    public void setQuantily(int quantily) {
+        this.quantily = quantily;
     }
 
     public String getImgurl() {

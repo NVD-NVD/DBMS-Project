@@ -51,6 +51,14 @@ public class User implements Serializable {
         this.password = password;
         this.userInfo = userInfo;
     }
+
+    public User(long id, String email, String password, Set<Role> roles) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
+
     public long getId() {
         return id;
     }

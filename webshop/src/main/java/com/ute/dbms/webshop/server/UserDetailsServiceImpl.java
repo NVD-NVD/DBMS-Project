@@ -1,9 +1,6 @@
 package com.ute.dbms.webshop.server;
 
 
-import java.util.HashSet;
-import java.util.Set;
-
 import com.ute.dbms.webshop.entity.Role;
 import com.ute.dbms.webshop.entity.User;
 import com.ute.dbms.webshop.repository.UserRepository;
@@ -15,6 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

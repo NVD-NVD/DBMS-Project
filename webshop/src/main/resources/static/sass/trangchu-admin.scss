@@ -1,0 +1,141 @@
+/* Theme Description :HTML/SCSS/JS
+Author : Hoang Long
+Version : 1.0.0
+*/
+
+/* ================ TABLE OF CONTENT ==================
+1, Header
+2, Feature
+3, Navigation
+4, Slide Product
+5, Catalog
+6, Policy
+7, Footer
+
+*/
+/* ============ 0, Setting =========== */
+@import "grid";
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff !important;
+}
+@import url(../sass/mixin.scss);
+/* ============ 1,Header ===========*/
+.header {
+    background: #f46164;
+    border-top: 2px solid #f46164;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header__logo {
+            p {
+                a {
+                    color: white;
+                }
+            }
+        }
+
+        .header__menu {
+            ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                li {
+                    padding: 10px;
+                    height: 40px;
+                    a {
+                        color: white;
+                        padding: 20px;
+                        &:hover {
+                            background: white;
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* ============ 2,Feature ===========*/
+.feature {
+    padding: 20px 0 20px 0;
+    .container {
+        .feature__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .feature__content-logo {
+                img {
+                    border: 0 none;
+                    width: 100px;
+                    vertical-align: middle;
+                    max-height: 100px;
+                    cursor: pointer;
+                }
+            }
+            .feature__content-search {
+                display: flex;
+                margin-right: 25px;
+                input {
+                    width: 400px;
+                    border: 1px solid #dedede;
+                    border-radius: 0;
+                    color: #454545;
+                    height: 40px;
+                    padding: 5px;
+                }
+                span {
+                    .btn-search {
+                        background-color: #000;
+                        height: 40px;
+                        font-size: 14px;
+                        border: none;
+                        &:hover {
+                            background-color: #f46164;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* ============ 3,Navigation ===========*/
+.navigation {
+    background: #454545;
+    .container {
+        .navigation__menu {
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                li {
+                    text-align: center;
+                    padding: 20px;
+                    a {
+                        padding: 20px;
+                        color: white;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        &:hover {
+                            background: #f46164;
+                            transition: 0.3s all;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
