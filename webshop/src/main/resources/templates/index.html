@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" th:href="@{/sass/owl.carousel.min.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/sass/owl.theme.default.min.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/sass/style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/sass/reset.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/style/owl.carousel.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/style/owl.theme.default.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/reset.css}">
     <title>Cửa hàng bán quần áo </title>
 </head>
 
@@ -44,11 +44,9 @@
                     <tr th:each="product : ${products}">
                         <div class="catalog__content-item">
                                 <div class="item__img">
-                                    <th>
-                                        <a>
-                                            <img th:src="${product.imgurl}" alt="">
-                                        </a>
-                                    </th>
+                                    <a>
+                                        <img th:src="${product.imgurl}" alt="">
+                                    </a>
                                 </div>
                                 <div class="item__info">
                                     <a th:text="${product.context}"></a>
@@ -91,7 +89,7 @@
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./js/script.js"></script>
-<script src="./js/owl.carousel.min.js"></script>
+<script src="./reSources/js/script.js"></script>
+<script src="./vedors/js/owl.carousel.min.js"></script>
 
 </html>

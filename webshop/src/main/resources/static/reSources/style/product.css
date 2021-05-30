@@ -10,7 +10,7 @@ Version : 1.0.0
 5, Footer
 */
 /* ============ 0, Setting =========== */
-@import url(../sass/mixin.scss);
+@import url(./mixin.scss);
 .row {
   display: flex;
   flex-wrap: wrap;

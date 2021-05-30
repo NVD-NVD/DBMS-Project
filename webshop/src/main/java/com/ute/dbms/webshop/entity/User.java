@@ -4,6 +4,7 @@ package com.ute.dbms.webshop.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -63,7 +64,7 @@ public class User implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -97,6 +98,15 @@ public class User implements Serializable {
     public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;
     }
+
+    public Collection<Bill> getBill() {
+        return bill;
+    }
+
+    public void setBill(Collection<Bill> bill) {
+        this.bill = bill;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(id, email, password);

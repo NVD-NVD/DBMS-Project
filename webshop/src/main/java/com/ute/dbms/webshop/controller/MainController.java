@@ -37,10 +37,6 @@ public class MainController {
         model.addAttribute("products", productRepository.findAll());
         return "index";
     }
-    @GetMapping("/cart")
-    public String about() {
-        return "/cart";
-    }
     @GetMapping("/login")
     public String login() {
         return "/sign-in";

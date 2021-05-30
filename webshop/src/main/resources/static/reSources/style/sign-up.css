@@ -169,7 +169,7 @@ img {
 /*--- end reset code ---*/
 
 body {
-    background: url(../images/banner_signin.jpg) no-repeat;
+    background: url(../../images/bg.jpg) no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -178,6 +178,7 @@ body {
     -o-background-size: cover;
     font-family: "Raleway", sans-serif;
     font-weight: 300;
+
 }
 h1.w3ls {
     font-size: 50px;
@@ -188,7 +189,7 @@ h1.w3ls {
     text-transform: uppercase;
 }
 .content-w3ls {
-    background-color: #202123;
+    background-color: #000;
     width: 70%;
     margin: 0 auto 50px;
     padding: 0;
@@ -196,7 +197,7 @@ h1.w3ls {
 .content-w3ls .content-agile1 {
     width: 50%;
     float: left;
-    background: url(../images/content_signin.jpg) no-repeat;
+    background: url(../../images/login_side.png) no-repeat;
     background-position: center;
     background-size: cover;
     -webkit-background-size: cover;
@@ -226,11 +227,11 @@ p.agileits2 {
     float: left;
     padding: 25px 0 0;
 }
+input#firstname,
 input#email,
 input#password,
-input#name,
-input#phone,
-input#address {
+input#password1,
+input#password2 {
     width: 300px;
     height: 50px;
     padding: 0 15px;
@@ -250,10 +251,12 @@ input#address {
 }
 input#firstname:focus,
 input#email:focus,
+input#password:focus,
 input#password1:focus,
 input#password2:focus,
 input#firstname:hover,
 input#email:hover,
+input#password:hover,
 input#password1:hover,
 input#password2:hover {
     color: #fff;
@@ -309,7 +312,7 @@ input.register {
 }
 input.register:hover {
     color: #fff;
-    background-color: #3970b0;
+    background-color: #cd201f;
 }
 p.wthree {
     font-size: 16px;
@@ -427,6 +430,7 @@ p.copyright a:hover {
     }
     input#firstname,
     input#email,
+    input#password,
     input#password1,
     input#password2 {
         font-size: 15px;
@@ -452,6 +456,7 @@ p.copyright a:hover {
 @media (max-width: 800px) {
     input#firstname,
     input#email,
+    input#password,
     input#password1,
     input#password2 {
         width: 260px;
@@ -523,6 +528,7 @@ p.copyright a:hover {
 @media (max-width: 384px) {
     input#firstname,
     input#email,
+    input#password,
     input#password1,
     input#password2 {
         width: 230px;
@@ -573,6 +579,7 @@ p.copyright a:hover {
     }
     input#firstname,
     input#email,
+    input#password,
     input#password1,
     input#password2 {
         width: 195px;

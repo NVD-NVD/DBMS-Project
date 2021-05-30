@@ -1,0 +1,13 @@
+$col: 12; // tạo 1 biến trong scss
+$gutter: 20px;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -$gutter / 2;
+    @for $i from 1 through $col {
+        .col-#{$i} {
+            width: (100% / $col) * $i;
+            padding: $gutter/2;
+        }
+    }
+}

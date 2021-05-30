@@ -22,6 +22,7 @@ public class CartController {
     @GetMapping(value = "/{id}")
     public String cart(@PathVariable("id") int id, Model model){
         Product product = productRepository.findById(id);
+        product.setQuantily(1);
         if(product == null){
             System.out.println("\n\n null \n\n");
         }

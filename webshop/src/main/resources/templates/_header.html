@@ -13,7 +13,7 @@
                 <div class="header__menu">
                     <ul>
                         <li><a th:href="@{/user/checkorder}"><i class="fas fa-pen-square"></i> Kiểm tra đơn hàng</a></li>
-                        <li><a th:href="@{/cart}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                        <li><a th:href="@{/user/cart}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                         <div th:switch="${#request.userPrincipal}">
                             <div th:case="null">
                                 <li><a th:href="@{/login}" methods="GET"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>

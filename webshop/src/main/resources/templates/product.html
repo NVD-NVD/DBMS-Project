@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" th:href="@{/sass/owl.carousel.min.css}">
-    <link rel="stylesheet" th:href="@{/sass/owl.theme.default.min.css}">
-    <link rel="stylesheet" th:href="@{/css/product.css}">
-    <link rel="stylesheet" th:href="@{/css/product.scss}">
-    <link rel="stylesheet" th:href="@{/sass/reset.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/style/owl.carousel.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/style/owl.theme.default.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/reset.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/product.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/_gird.scss}">
+    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/mixin.scss}">
     <title>Sản phẩm</title>
 </head>
 
@@ -72,10 +73,12 @@
                 <div class="col-9">
                     <div class="product__block">
                         <div class="row">
-                            <form th:action="@{user/cart/add}" method="post" th:object="${product}">
+                            <form action="#" th:action="@{/user/cart/add/{id}(id=${product.id})}" method="post" th:object="${product}">
                                 <div class="col-6 sp-wrap">
                                     <div class="sp-img">
-                                        <a><img th:src="${product.imgurl}" alt=""></a>
+                                        <th>
+                                            <a ><img th:src="${product.imgurl}" alt="images"></a>
+                                        </th>
                                     </div>
                                 </div>
 
@@ -96,19 +99,18 @@
                                         <div class="minusBtn minusText">
                                             <i class="fas fa-minus"></i>
                                         </div>
-                                        <input type="number" value="1">
+                                        <input type="number" th:field="*{quantily}" id="quantily">
                                         <div class="plusBtn plusText">
                                             <i class="fas fa-plus"></i>
                                         </div>
                                     </div>
-
-                                    <div class="addToCart">
-                                        <div class="btn btn-danger buyButton">
-                                            <i class="fas fa-shopping-cart paddingRightCart">
-                                                <input type="submit" alt="Chọn mua">
-                                            </i>
-                                        </div>
-                                    </div>
+                                </div>
+                                <div class="addToCart">
+                                    <button class="btn btn-danger buyButton" >
+                                        <i class="fas fa-shopping-cart paddingRightCart">
+                                            Thêm vào giỏ hàng
+                                        </i>
+                                    </button>
                                 </div>
                             </form>
                         </div>

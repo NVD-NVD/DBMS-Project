@@ -1,8 +1,10 @@
 package com.ute.dbms.webshop.entity;
 
 import javax.persistence.*;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "BILL")

@@ -9,11 +9,6 @@ public class Cart {
     @Column(name = "user_id")
     private Long userID;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "user_id")
-    private User user;
-
     @Column(name = "product_id")
     private int productID;
 
