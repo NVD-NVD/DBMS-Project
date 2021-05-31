@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" th:href="@{/vendors/style/owl.theme.default.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/reset.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/cart.css}">
-
     <title>Giỏ hàng</title>
 </head>
 
@@ -43,33 +42,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="cartForm : ${cartFromList}">
+                            <tr th:each="cartForm : ${cartFormList}">
                                 <td class="description">
-                                    <h2 th:text="${cartFrom.name}"></h2>
+                                    <h2 th:text="${cartForm.name}"></h2>
                                 </td>
                                 <td class="img">
-                                    <img th:src="${cartForm.img}" alt="">
+                                    <img th:src="@{'/'+${cartForm.img}}" alt="">
                                 </td>
                                 <td class="price" th:text="${cartForm.price}"></td>
                                 <td class="quantity">
-                                    <input type="number" th:text="${cartForm.quantily}">
+                                    <h2 type="text" th:text="${cartForm.quantily}"></h2>
                                 </td>
                                 <td class="amount" th:text="${cartForm.money}"></td>
                                 <td class="remove">
-                                    <a th:href="@{/user/cart/remove/{id}(id=${cartForm.id})">
+                                    <a th:href="@{/user/cart/remove/{id}(id=${cartForm.id})}">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="order">
-                        <p>Tổng : <td th:text="${sum}"></td></p>
-                        <a class="btn-add" th:href="@{/user/cart/order}"><i class="fas fa-cart-plus"></i> Mua</a>
+                    <div class="order order-custom">
+                        <p class="p-custom">Tổng : <td th:text="${sum}"></td></p>
+                        <a class="btn-add btn-custom" th:href="@{/user/cart/order}"><i class="fas fa-cart-plus"></i> Đặt Hàng</a>
                     </div>
+                    <br>
                 </div>
-                <div class="cart__block-price"></div>
-                <div class="cart__block-btn"></div>
             </div>
         </div>
     </div>

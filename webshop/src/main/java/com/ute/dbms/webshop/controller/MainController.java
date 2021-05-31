@@ -2,7 +2,7 @@ package com.ute.dbms.webshop.controller;
 
 import com.ute.dbms.webshop.entity.Role;
 import com.ute.dbms.webshop.entity.User;
-import com.ute.dbms.webshop.entity.UserForm;
+import com.ute.dbms.webshop.model.UserForm;
 import com.ute.dbms.webshop.entity.UserInfo;
 import com.ute.dbms.webshop.repository.ProductRepository;
 import com.ute.dbms.webshop.repository.RoleRepository;

@@ -6,16 +6,16 @@ import javax.persistence.*;
 @Table(name = "DETAIL")
 public class Detail {
     @Id
-    @Column(name = "id")
+    @JoinColumn(name = "ID_BILL")
     private int id;
 
     @ManyToOne
     @MapsId
-    @JoinColumn(name = "bill_id")
+    @JoinColumn(name = "ID_BILL")
     private Bill bill;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "ID_PRODUCT")
     private Product product;
     @Column(name = "QUANTILY")
     private int quantily;

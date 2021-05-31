@@ -11,7 +11,7 @@ Version : 1.0.0
 
 */
 /* ============ 0, Setting =========== */
-@import url(./mixin.scss);
+@import "mixin.scss";
 .row {
   display: flex;
   flex-wrap: wrap;

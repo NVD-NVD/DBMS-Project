@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/cart")
-public class CartController {
+@RequestMapping("/product")
+public class ProductController {
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -20,7 +20,7 @@ public class CartController {
 
 
     @GetMapping(value = "/{id}")
-    public String cart(@PathVariable("id") int id, Model model){
+    public String product(@PathVariable("id") int id, Model model){
         Product product = productRepository.findById(id);
         product.setQuantily(1);
         if(product == null){
@@ -29,5 +29,4 @@ public class CartController {
         model.addAttribute("product", product);
         return "product";
     }
-
 }

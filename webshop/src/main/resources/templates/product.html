@@ -11,8 +11,6 @@
     <link rel="stylesheet" type="text/css" th:href="@{/vendors/style/owl.theme.default.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/reset.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/product.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/_gird.scss}">
-    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/mixin.scss}">
     <title>Sản phẩm</title>
 </head>
 
@@ -73,40 +71,42 @@
                 <div class="col-9">
                     <div class="product__block">
                         <div class="row">
-                            <form action="#" th:action="@{/user/cart/add/{id}(id=${product.id})}" method="post" th:object="${product}">
-                                <div class="col-6 sp-wrap">
-                                    <div class="sp-img">
-                                        <th>
-                                            <a ><img th:src="${product.imgurl}" alt="images"></a>
-                                        </th>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 product-detail">
-                                    <li><h2 th:text="${product.name}"></h2></li>
-                                    <li><h2 class="price" th:text="${product.price}"></h2></li>
-                                    <span>Mã SP :</span>
-
-                                    <div class="product-description">
-                                        <p th:text="*{context}"></p>
-                                    </div>
-
-                                    <div class="size">
-                                        Size: Free Size
-                                    </div>
-
-                                    <div class="quantity">
-                                        <div class="minusBtn minusText">
-                                            <i class="fas fa-minus"></i>
-                                        </div>
-                                        <input type="number" th:field="*{quantily}" id="quantily">
-                                        <div class="plusBtn plusText">
-                                            <i class="fas fa-plus"></i>
+                            <form action="#" th:action="@{/user/cart/add/{id}(id=${product.id})}" method="post">
+                                <tr  th:object="${product}">
+                                    <div class="col-6 sp-wrap">
+                                        <div class="sp-img">
+                                            <a>
+                                                <img th:src="@{'/' + ${product.imgurl}}" alt="">
+                                            </a>
                                         </div>
                                     </div>
-                                </div>
+
+                                    <div class="col-6 product-detail" style="float: right">
+                                        <li>Tên: <h2 th:text="${product.name}"></h2></li>
+                                        <li>Giá: <h2 class="price" th:text="${product.price}"></h2></li>
+                                        <span>Mã SP : <p th:text="${product.id}"></p></span>
+
+                                        <div class="product-description">
+                                            <p th:text="*{context}"></p>
+                                        </div>
+
+                                        <div class="size">
+                                            Size: Free Size
+                                        </div>
+
+                                        <div class="quantity">
+                                            <div class="minusBtn minusText">
+                                                <i class="fas fa-minus"></i>
+                                            </div>
+                                            <input type="number" th:field="*{quantily}" id="quantily">
+                                            <div class="plusBtn plusText">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
                                 <div class="addToCart">
-                                    <button class="btn btn-danger buyButton" >
+                                    <button class="btn btn-danger buyButton" style="background-color: red">
                                         <i class="fas fa-shopping-cart paddingRightCart">
                                             Thêm vào giỏ hàng
                                         </i>

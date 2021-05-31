@@ -3,18 +3,16 @@ package com.ute.dbms.webshop.controller;
 import com.ute.dbms.webshop.entity.*;
 import com.ute.dbms.webshop.model.BillForm;
 import com.ute.dbms.webshop.model.CartForm;
+import com.ute.dbms.webshop.model.UserForm;
 import com.ute.dbms.webshop.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -34,20 +32,21 @@ public class UserController {
     public String userCart(Model model, HttpServletRequest request) {
         try {
             User user = userRepository.findByEmail(request.getUserPrincipal().getName());
-            List<Cart> cartList = cartRepository.findAllByUserID(user.getId());
-            List<CartForm> cartFormList = null;
             int sum = 0;
+            List<CartForm> cartFormList = new ArrayList<CartForm>();
+            List<Cart> cartList = cartRepository.findAllByUserID(user.getId());
             for (Cart cart : cartList) {
                 Product product = productRepository.findById(cart.getProductID());
-                CartForm cartFrom = new CartForm(product.getId(),
+                CartForm cartFrom = new CartForm(cart.getProductID(),
                         product.getName(), product.getImgurl(), product.getPrice(),
                         cart.getQuantity(), product.getPrice() * cart.getQuantity());
                 cartFormList.add(cartFrom);
                 sum += product.getPrice() * cart.getQuantity();
-                System.out.println(cart.toString());
             }
-            model.addAttribute("cartFromList", cartFormList);
+            model.addAttribute("cartFormList", cartFormList);
             model.addAttribute("sum", sum);
+            for(CartForm cartForm : cartFormList)
+                System.out.println(cartForm.toString());
         }
         catch (NullPointerException e){
         }
@@ -56,7 +55,14 @@ public class UserController {
     @PostMapping(value = "/cart/add/{id}")
     public String addCart(@PathVariable("id") int id, @Valid Product product, HttpServletRequest request){
         User user = userRepository.findByEmail(request.getUserPrincipal().getName());
-        Cart cart = new Cart(user.getId(), id, product.getQuantily());
+        Cart cart = cartRepository.findByUserIDAndProductID(user.getId(), id);
+        if(cart == null) {
+            cart = new Cart(user.getId(), id, product.getQuantily());
+        }
+        else{
+            cart.setQuantity(cart.getQuantity() + product.getQuantily());
+        }
+
         System.out.println("\n" + product.getId());
         cartRepository.save(cart);
         return "redirect:/";
@@ -68,14 +74,18 @@ public class UserController {
         cartRepository.delete(cart);
         return "redirect:/user/cart";
     }
-    @PostMapping(value = "/order")
+    @GetMapping(value = "/cart/order")
     public String orderCart(HttpServletRequest request){
         User user = userRepository.findByEmail(request.getUserPrincipal().getName());
         List<Cart> cartList = cartRepository.findAllByUserID(user.getId());
         Bill bill = new Bill();
         bill.setUser(user);
+        long millis=System.currentTimeMillis();
+        java.sql.Date date=new java.sql.Date(millis);
+        System.out.println(date);
+        bill.setDate(date);
         int sum = 0;
-        List<Detail> detailList = null;
+        List<Detail> detailList = new ArrayList<Detail>();
         for(Cart cart : cartList){
             Detail detail = new Detail();
             Product product = productRepository.findById(cart.getProductID());
@@ -90,24 +100,43 @@ public class UserController {
         bill.setSum(sum);
         billRepository.save(bill);
         detailRepository.saveAll(detailList);
-        return "index";
+        return "redirect:/";
     }
     @GetMapping("/checkorder")
-    public String CheckOrder(String idBill){
-        return "checkorder";
+    public String CheckOrder(Model model){
+        Bill bill = new Bill();
+        model.addAttribute("bill", bill);
+        return "user-checkorder";
     }
-    @PostMapping("/detailorder")
-    public String DetailOrder(HttpServletRequest request, @Valid Bill bill, Model model){
-        User user = userRepository.findByEmail(request.getUserPrincipal().getName());
-        UserForm userForm = new UserForm(
-                user.getEmail(),user.getUserInfo().getUserName(),
-                user.getUserInfo().getPhone(),user.getUserInfo().getAddress());
-        List<BillForm> billFormList = new BillForm().getListBillForm(bill.getId());
-        Bill bi = billRepository.findById(bill.getId());
-        model.addAttribute("billFormList", billFormList);
-        model.addAttribute("sumBill", bi.getSum());
-        model.addAttribute("status",bi.isStatus());
-        model.addAttribute("userInfo", userForm);
+    @GetMapping("/detailorder")
+    public String DetailOrder(HttpServletRequest request, @RequestParam("id") int id, Model model){
+        try{
+            User user = userRepository.findByEmail(request.getUserPrincipal().getName());
+            UserForm userForm = new UserForm(
+                    user.getEmail(),user.getUserInfo().getUserName(),
+                    user.getUserInfo().getPhone(),user.getUserInfo().getAddress());
+            Bill bill = billRepository.findById(id);
+            List<BillForm> billFormList = new ArrayList<BillForm>();
+            List<Detail> detailList = detailRepository.findAllById(id);
+            for(Detail detail : detailList){
+                BillForm billForm = new BillForm();
+                billForm.setNamePro(detail.getProduct().getName());
+                billForm.setPrice(detail.getProduct().getPrice());
+                billForm.setQuantily(detail.getQuantily());
+                billForm.setSum(detail.getProduct().getPrice(), detail.getQuantily());
+                billFormList.add(billForm);
+            }
+            for(BillForm billForm : billFormList)
+                System.out.println(billForm.toString());
+            model.addAttribute("billFormList", billFormList);
+            model.addAttribute("bill",bill);
+            model.addAttribute("sumBill", bill.getSum());
+            model.addAttribute("status",bill.isStatus());
+            model.addAttribute("userForm", userForm);
+        }
+        catch (NullPointerException e){
+            return "user-checkorder";
+        }
         return "detailorder";
     }
 }

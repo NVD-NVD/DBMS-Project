@@ -11,7 +11,7 @@ Version : 1.0.0
 
 */
 /* ============ 0, Setting =========== */
-@import url(./mixin.scss);
+@import "mixin.scss";
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -195,7 +195,7 @@ h6 {
 
 /* ============ 4,Cart ===========*/
 .cart {
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 .cart .container .cart__content {
   margin-top: 20px;
@@ -374,5 +374,18 @@ h6 {
 .footer .container .footer__content .footer__content-social ul li a i {
   color: white;
 }
-
+.order-custom {
+  float: right;
+  margin-right: 150px;
+}
+.p-custom{
+  margin-bottom: 30px;
+}
+.btn-custom {
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+}
 /*# sourceMappingURL=cart.css.map */

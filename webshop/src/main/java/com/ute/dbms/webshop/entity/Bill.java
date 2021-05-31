@@ -1,16 +1,14 @@
 package com.ute.dbms.webshop.entity;
 
 import javax.persistence.*;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "BILL")
 public class Bill {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_BILL")
     private int id;
 
@@ -22,7 +20,7 @@ public class Bill {
     private Date date;
 
     @Column(name = "SUM", nullable = false)
-    private long sum;
+    private int sum;
 
     @OneToMany(mappedBy = "bill", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
@@ -58,11 +56,11 @@ public class Bill {
         this.date = date;
     }
 
-    public long getSum() {
+    public int getSum() {
         return sum;
     }
 
-    public void setSum(long sum) {
+    public void setSum(int sum) {
         this.sum = sum;
     }
 

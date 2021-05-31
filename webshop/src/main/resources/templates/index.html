@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,13 +22,13 @@
     <div class="slider owl-theme">
         <div class="container owl-carousel">
             <div class="item">
-                <img src="images/slider_3.jpg" alt="">
+                <img src="/images/slider_3.jpg" alt="">
             </div>
             <div class="item">
-                <img src="images/slider_4.jpg" alt="">
+                <img src="/images/slider_4.jpg" alt="">
             </div>
             <div class="item">
-                <img src="images/slider_5.jpg" alt="">
+                <img src="/images/slider_5.jpg" alt="">
             </div>
         </div>
     </div>
@@ -49,9 +49,9 @@
                                     </a>
                                 </div>
                                 <div class="item__info">
-                                    <a th:text="${product.context}"></a>
+                                    <a th:text="${product.name}"></a>
                                     <span th:text="${product.price}"></span>
-                                    <a class="btn-add" th:href="@{/cart/{id}(id=${product.id})}"><i class="fas fa-cart-plus"></i> Mua</a>
+                                    <a class="btn-add" th:href="@{/product/{id}(id=${product.id})}"><i class="fas fa-cart-plus"></i>Chi Tiết</a>
                                 </div>
                         </div>
                     </tr>
@@ -89,7 +89,7 @@
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./reSources/js/script.js"></script>
-<script src="./vedors/js/owl.carousel.min.js"></script>
+<script src="/reSources/js/script.js"></script>
+<script src="/vendors/js/owl.carousel.min.js"></script>
 
 </html>

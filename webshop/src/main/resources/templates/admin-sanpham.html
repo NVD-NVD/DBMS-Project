@@ -22,20 +22,7 @@
   <div th:replace="_feature::_feature_"></div>
 
   <!-- Start Navigation -->
-
-  <div class="navigation">
-    <div class="container">
-      <div class="navigation__menu">
-        <ul>
-          <li><a th:href="@{/admin/donhang}">ĐƠN HÀNG</a></li>
-          <li><a th:href="@{/admin/product}">QL SẢN PHẨM</a></li>
-          <li><a th:href="@{/admin/nhanvien}">QL NHÂN VIÊN</a></li>
-          <li><a th:href="@{/admin/danhthu}">DOANH THU</a></li>
-          <li><a th:href="@{/admin}">tinh sau</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <div th:replace="_nav-admin::_nav-admin_"></div>
   <!-- End Navigation -->
 
   <!-- Start list Product -->
@@ -45,7 +32,7 @@
         <div class="product-body">
           <div th:switch="${products}" class="container my-5">
             <p class="my-5">
-              <a th:href="@{/admin/products/add}" class="btn btn-primary"><i
+              <a th:href="@{/admin/product/add}" class="btn btn-primary"><i
                       class="fas fa-user-plus ml-2">Add Product</i></a>
             </p>
             <div class="col-md-10">
@@ -60,6 +47,7 @@
                     <th>Context</th>
                     <th>So Luong</th>
                     <th>Edit</th>
+                    <th>Delete</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -68,9 +56,11 @@
                     <td th:text="${product.name}"></td>
                     <td th:text="${product.price}"></td>
                     <td th:text="${product.context}"></td>
-                    <th th:text="${product.soLuong}"></th>
-                    <td><a th:href="@{/products/edit/{id}(id=${product.id})}"
+                    <th th:text="${product.quantily}"></th>
+                    <td><a th:href="@{/admin/product/edit/{id}(id=${product.id})}"
                            class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                    <td><a th:href="@{/admin/product/delete/{id}(id=${product.id})}"
+                           class="btn btn-primary"><i class="fas fa-trash-alt ml-2"></i></a></td>
                   </tr>
                   </tbody>
                 </table>

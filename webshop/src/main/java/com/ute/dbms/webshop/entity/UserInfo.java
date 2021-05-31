@@ -1,32 +1,27 @@
 package com.ute.dbms.webshop.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "user_info")
+@Table(name = "USER_INFO")
 public class UserInfo {
     @Id
-    @Column(name = "id")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "USER_ID")
+    private int id;
 
     @OneToOne
     @MapsId
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "ID")
     private User user;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "NAME", nullable = false)
     private String userName;
 
-    @Column(name = "phone", nullable = false)
+    @Column(name = "PHONE", nullable = false)
     private String phone;
 
-    @Column(name = "address", nullable = false)
+    @Column(name = "ADDRESS", nullable = false)
     private String address;
 
     public UserInfo() {
@@ -36,10 +31,10 @@ public class UserInfo {
         this.phone = phone;
         this.address = address;
     }
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     public User getUser() {

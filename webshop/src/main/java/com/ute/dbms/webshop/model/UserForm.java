@@ -1,4 +1,4 @@
-package com.ute.dbms.webshop.entity;
+package com.ute.dbms.webshop.model;
 
 public class UserForm {
     private String email;

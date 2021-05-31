@@ -9,9 +9,9 @@ import java.util.Set;
 public class Role{
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "ID_ROLE", nullable = false)
-    private long roleId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID", nullable = false)
+    private int roleId;
 
     @Column(name = "ROLE", nullable = false)
     private String roleName;
@@ -26,7 +26,7 @@ public class Role{
         this.roleName = roleName;
     }
 
-    public long getroleId() {
+    public int getroleId() {
         return roleId;
     }
 

@@ -40,7 +40,7 @@
                         </div>
                     </form>
 
-                    <div class="detail__info" th:switch="${detailList}">
+                    <div class="detail__info" th:switch="${billFormList}">
                         <h2>Thông tin đơn hàng</h2>
                         <h2 th:case="null">No Product yet!</h2>
                         <div th:case="*" class="detail__table">

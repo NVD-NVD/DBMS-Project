@@ -18,39 +18,39 @@
 <body>
     <div th:replace="_header::_header_"></div>
     <div th:replace="_feature::_feature_"></div>
-
+    <div th:replace="_nav-admin::_nav-admin_"></div>
     <div class="container my-5">
         <h3>Add Product</h3>
         <div class="product">
             <div class="product-body">
                 <div class="col-md-10">
-                    <form action="#" th:action="@{/admin/products/save}"
+                    <form action="#" th:action="@{/admin/product/save}"
                           th:object="${product}" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="form-group col-md-8">
                                 <label for="name" class="col-form-label">Ten SP</label>
-                                <input type="text" th:field="*{name}" class="form-control" id="name"
+                                <input type="text" th:field="${product.name}" class="form-control" id="name"
                                     placeholder="name">
                             </div>
 
                             <div class="form-group col-md-8">
                                 <label for="price" class="col-form-label">price</label>
-                                <input type="number" th:field="*{price}" class="form-control"
+                                <input type="number" th:field="${product.price}" class="form-control"
                                     id="price" placeholder="price">
                             </div>
                             <div class="form-group col-md-8">
                                 <label for="context" class="col-form-label">Context</label>
-                                <input type="text" th:field="*{context}" class="form-control"
+                                <input type="text" th:field="${product.context}" class="form-control"
                                     id="context" placeholder="Context">
                             </div>
                             <div class="form-group col-md-8">
                                 <label for="soLuong" class="col-form-label">So luong</label>
-                                <input type="number" th:field="*{soLuong}" class="form-control"
+                                <input type="number" th:field="${product.quantily}" class="form-control"
                                     id="soLuong" placeholder="So Luong">
                             </div>
                             <div class="form-group col-md-8">
                                 <label for="multipartFile" class="col-form-label">Image</label>
-                                <input type="file" th:field="${multipartFile}" class="form-control"
+                                <input type="file" th:field="${product.multipartFile}" class="form-control"
                                        id="multipartFile" placeholder="Image">
                             </div>
                             <div class="col-md-6">

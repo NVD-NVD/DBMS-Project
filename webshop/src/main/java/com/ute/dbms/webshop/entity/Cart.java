@@ -3,13 +3,18 @@ package com.ute.dbms.webshop.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cart")
+@Table(name = "CART")
 public class Cart {
     @Id
-    @Column(name = "user_id")
-    private Long userID;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "ID")
+    private int id;
 
-    @Column(name = "product_id")
+
+    @Column(name = "ID_USER")
+    private long userID;
+
+    @Column(name = "ID_PRODUCT")
     private int productID;
 
     @Column
@@ -24,11 +29,19 @@ public class Cart {
         this.quantity = quantity;
     }
 
-    public Long getUserID() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public long getUserID() {
         return userID;
     }
 
-    public void setUserID(Long userID) {
+    public void setUserID(long userID) {
         this.userID = userID;
     }
 
@@ -46,5 +59,15 @@ public class Cart {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{"
+                + "id: " + id
+                + " userID: " + userID
+                + " productID: " + productID
+                + " quantily: " + quantity
+                + "}";
     }
 }

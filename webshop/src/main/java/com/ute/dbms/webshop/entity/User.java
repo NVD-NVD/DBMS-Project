@@ -4,7 +4,6 @@ package com.ute.dbms.webshop.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,21 +13,21 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID", nullable = false)
-    private long id;
+    private int id;
 
-    @Column(name = "EMAIL", nullable = false, unique = true)
+    @Column(name = "EMAIL", nullable = false)
     private String email;
 
-    @Column(name = "PASSWORD", nullable = false, unique = true)
+    @Column(name = "PASSWORD", nullable = false)
     private String password;
 
     @ManyToMany
     @JoinTable(
             name = "USER_ROLE",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
+            joinColumns = @JoinColumn(name = "USER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ROLE_ID")
     )
     private Set<Role> roles;
 
@@ -53,7 +52,7 @@ public class User implements Serializable {
         this.userInfo = userInfo;
     }
 
-    public User(long id, String email, String password, Set<Role> roles) {
+    public User(int id, String email, String password, Set<Role> roles) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -64,7 +63,7 @@ public class User implements Serializable {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

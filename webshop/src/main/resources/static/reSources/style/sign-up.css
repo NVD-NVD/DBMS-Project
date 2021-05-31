@@ -229,6 +229,9 @@ p.agileits2 {
 }
 input#firstname,
 input#email,
+input#name,
+input#phone,
+input#address,
 input#password,
 input#password1,
 input#password2 {
@@ -251,11 +254,17 @@ input#password2 {
 }
 input#firstname:focus,
 input#email:focus,
+input#name:focus,
+input#phone:focus,
+input#address:focus,
 input#password:focus,
 input#password1:focus,
 input#password2:focus,
 input#firstname:hover,
 input#email:hover,
+input#name:hover,
+input#phone:hover,
+input#address:hover,
 input#password:hover,
 input#password1:hover,
 input#password2:hover {
@@ -430,6 +439,9 @@ p.copyright a:hover {
     }
     input#firstname,
     input#email,
+    input#name,
+    input#phone,
+    input#address,
     input#password,
     input#password1,
     input#password2 {
@@ -456,6 +468,9 @@ p.copyright a:hover {
 @media (max-width: 800px) {
     input#firstname,
     input#email,
+    input#name,
+    input#phone,
+    input#address,
     input#password,
     input#password1,
     input#password2 {
@@ -528,6 +543,9 @@ p.copyright a:hover {
 @media (max-width: 384px) {
     input#firstname,
     input#email,
+    input#name,
+    input#phone,
+    input#address,
     input#password,
     input#password1,
     input#password2 {
@@ -579,6 +597,9 @@ p.copyright a:hover {
     }
     input#firstname,
     input#email,
+    input#name,
+    input#phone,
+    input#address,
     input#password,
     input#password1,
     input#password2 {

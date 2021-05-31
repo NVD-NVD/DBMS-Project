@@ -4,21 +4,21 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "product")
+@Table(name = "PRODUCT")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private int id;
-    @Column(name = "name", nullable = false)
+    @Column(name = "NAME")
     private String name;
-    @Column(name = "price", nullable = false)
+    @Column(name = "PRICE")
     private int price;
-    @Column(name = "context", nullable = false)
+    @Column(name = "CONTENT")
     private String context;
-    @Column(name = "soluong", nullable = false)
+    @Column(name = "QUANTILY")
     private int quantily;
-    @Column(name = "imgUrl")
+    @Column(name = "IMGURL")
     private String imgurl;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
@@ -105,12 +105,25 @@ public class Product {
     public void setImgurl(String imgurl) {
         this.imgurl = imgurl;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", context='" + context + '\'' +
+                ", quantily=" + quantily +
+                ", imgurl='" + imgurl + '\'' +
+                ", detail=" + detail +
+                '}';
+    }
 }
 /*
-* CREATE TABLE WAREHOUSE(
-	GOODSID INTEGER CONSTRAINT MaSP PRIMARY KEY NOT NULL,
-	GOODSNAME CHAR(12) CONSTRAINT TenSP NOT NULL,
+* CREATE TABLE PRODUCT(
+	ID INTEGER CONSTRAINT MaSP PRIMARY KEY NOT NULL,
+	NAME CHAR(12) CONSTRAINT TenSP NOT NULL,
 	PRICE INTEGER CONSTRAINT GIA CHECK(PRICE>=0) NOT NULL,
-	QUANTILY_WH INTEGER CONSTRAINT SLTONKHO CHECK(QUANTILY_WH>=0) NOT NULL
+	QUANTILY INTEGER CONSTRAINT SLTONKHO CHECK(QUANTILY_WH>=0) NOT NULL
 	)
 */

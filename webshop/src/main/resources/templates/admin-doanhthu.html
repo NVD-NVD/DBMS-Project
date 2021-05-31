@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/style.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/reset.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/adminPage.css}">
+  <title>ADMIN PAGE</title>
+</head>
+
+<body>
+<div th:replace="_header::_header_"></div>
+<div th:replace="_feature::_feature_"></div>
+
+<!-- Start Navigation -->
+<div th:replace="_nav-admin::_nav-admin_"></div>
+<!-- End Navigation -->
+<!-- Start Order -->
+<div class="order">
+  <div class="container">
+    <div class="order__content">
+      <h3 class="title">
+        <span>Kiểm tra đơn hàng</span>
+      </h3>
+    </div>
+
+    <div class="order__block">
+      <div class="order__block-info">
+        <table class="table product__list" th:switch="${billList}">
+          <h2 th:case="null">Không có đơn hàng nào</h2>
+          <thead>
+          <tr>
+            <th>ID BILL</th>
+            <th>Ngày lập Order</th>
+            <th>Tổng tiền</th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody th:each="bill : ${billList}">
+          <tr>
+            <td class="id__order" th:text="${bill.id}"></td>
+            <td class="date__order" th:text="${bill.date}"></td>
+            <td class="price__order" th:text="${bill.sum}"></td>
+            <td class="detail__order">
+              <p>Tổng: </p>
+              <p th:text="${sum}"></p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Order -->
+
+<hr>
+<div th:replace="_footer::_footer_"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/reSources/js/script.js"></script>
+<script src="/vendors/js/owl.carousel.min.js"></script>
+
+</html>

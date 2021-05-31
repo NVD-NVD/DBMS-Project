@@ -31,11 +31,11 @@
     </div>
 
     <div class="detail__order">
-      <form class="form-inline" th:action="@{/user/detailorder}" th:object="${bill}" method="post">
+      <form class="form-inline" th:action="@{/user/detailorder}" th:object="${bill}" method="get">
         <div class="form-group">
           <label>Nhập mã đơn hàng</label>
-          <input type="text" class="form-control" placeholder="Mã số đơn hàng (VD:OD001)"
-                 required="required" th:field="${idBill}">
+          <input type="number" class="form-control" placeholder="Mã số đơn hàng (VD:OD001)"
+                 required="" name="id" th:field="*{id}">
           <button class="btn btn-primary">Xem ngay</button>
         </div>
       </form>

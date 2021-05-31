@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/style/owl.carousel.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/style/owl.theme.default.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/reset.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/reSources/style/detailorder.css}">
+    <title>Kiểm Tra Đơn Hàng</title>
+
+</head>
+
+<body>
+<div th:replace="_header::_header_"></div>
+<div th:replace="_feature::_feature_"></div>
+<div th:replace="_nav-admin::_nav-admin_"></div>
+
+<!-- Start Detail -->
+<div class="detail">
+    <div class="container">
+        <div class="detail__content">
+            <div class="title">
+                <h3>
+                    <span>Chi tiết đơn hàng</span>
+                </h3>
+            </div>
+            <div class="detail__order">
+                <div class="detail__info" th:switch="${billFormList}">
+                    <h2>Thông tin đơn hàng</h2>
+                    <h2 th:case="null">No Product yet!</h2>
+                    <div th:case="*" class="detail__table">
+                        <table class="table table-mycart">
+                            <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="billForm : ${billFormList}">
+                                <td th:text="${billForm.namePro}"></td>
+                                <td th:text="${billForm.price}"></td>
+                                <th th:text="${billForm.quantily}"></th>
+                                <th th:text="${billForm.sum}"</th>
+                            </tr>
+                            <tr class="payment-info">
+                                <td colspan="3" class="border-right">
+                                    <div class="customer__content" th:object="${userForm}">
+                                        <div class="customer__content-title">
+                                            <span>Thông tin giao hàng</span>
+                                        </div>
+                                        <div>
+                                            [Anh/Chị]
+                                            <b th:text="${userForm.userName}"></b>
+                                        </div>
+                                        <div>
+                                            [Email]
+                                            <b th:text="${userForm.email}"></b>
+                                        </div>
+                                        <div>[SDT]
+                                            <b th:text="${userForm.phone}"></b>
+                                        </div>
+                                        <div>
+                                            [Địa chỉ]
+                                            <b th:text="${userForm.address}"></b>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td colspan="4" class="payment">
+                                    <table class="table">
+                                        <tbody>
+                                        <tr>
+                                            <td class="text-left">
+                                                <b>Tổng tiền</b>
+                                            </td>
+
+                                            <td class="text-right">
+                                                <b class="total-payment" th:text="${sumBill}">
+
+                                                </b>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-left">
+                                                <b>Phí vận chuyển</b>
+                                            </td>
+                                            <td class="text-right">
+                                                <b class="total-payment">0đ</b>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-left">
+                                                <b>Tổng tiền phải thanh toán</b>
+                                            </td>
+                                            <td class="text-right">
+                                                <b class="total-payment" th:text="${sumBill}"></b>
+                                            </td>
+                                        </tr>
+                                        <tr class="order-stt">
+                                            <td colspan="2">
+                                                <a th:action="@{/admin/order/detail/delivery/{id}(id=${idBill})}" methods="post">
+                                                    <i class="fas fa-info-circle"></i>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Detail -->
+<hr>
+<div th:replace="_footer::_footer_"></div>
+</body>
+
+</html>

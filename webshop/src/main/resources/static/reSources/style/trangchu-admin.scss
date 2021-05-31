@@ -31,7 +31,7 @@ Version : 1.0.0
     transition: all 0.3s ease-in-out;
     color: #ffffff !important;
 }
-@import url(../sass/mixin.scss);
+@import "mixin.scss";
 /* ============ 1,Header ===========*/
 .header {
     background: #f46164;
