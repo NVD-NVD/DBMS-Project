@@ -1,6 +1,7 @@
 package com.ute.dbms.webshop.model;
 
 public class UserForm {
+    private int id;
     private String email;
     private String password;
     private String userName;
@@ -22,6 +23,14 @@ public class UserForm {
         this.userName = userName;
         this.phone = phone;
         this.address = address;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {

@@ -131,6 +131,7 @@ public class AdminController {
         UserForm userForm = new UserForm(
                 user.getEmail(),user.getUserInfo().getUserName(),
                 user.getUserInfo().getPhone(),user.getUserInfo().getAddress());
+        userForm.setId(id);
         Bill bill = billRepository.findById(id);
         List<BillForm> billFormList = new ArrayList<BillForm>();
         List<Detail> detailList = detailRepository.findAllById(id);
@@ -142,17 +143,17 @@ public class AdminController {
             billForm.setSum(detail.getProduct().getPrice(), detail.getQuantily());
             billFormList.add(billForm);
         }
+        System.out.println(id);
         for(BillForm billForm : billFormList)
             System.out.println(billForm.toString());
         model.addAttribute("billFormList", billFormList);
         model.addAttribute("bill",bill);
-        model.addAttribute("idBil",id);
         model.addAttribute("sumBill", bill.getSum());
         model.addAttribute("userForm", userForm);
 
         return "admin-detail";
     }
-    @PostMapping("/order/detail/delivery/{id}")
+    @GetMapping("/order/detail/delivery/{id}")
     public String deliveryOrder(@PathVariable("id") int id){
         Bill bill = billRepository.findById(id);
         bill.setStatus(true);

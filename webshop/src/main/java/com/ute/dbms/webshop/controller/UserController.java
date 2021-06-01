@@ -99,7 +99,7 @@ public class UserController {
         bill.setDetail(detailList);
         bill.setSum(sum);
         billRepository.save(bill);
-        detailRepository.saveAll(detailList);
+        //detailRepository.saveAll(detailList);
         return "redirect:/";
     }
     @GetMapping("/checkorder")

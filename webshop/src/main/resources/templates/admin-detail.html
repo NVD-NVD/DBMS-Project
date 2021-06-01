@@ -108,9 +108,11 @@
                                             </td>
                                         </tr>
                                         <tr class="order-stt">
-                                            <td colspan="2">
-                                                <a th:action="@{/admin/order/detail/delivery/{id}(id=${idBill})}" methods="post">
-                                                    <i class="fas fa-info-circle"></i>
+                                            <td >
+                                                <a style="color: white; padding: 20px" class="btn-add btn-custom"
+                                                   th:href="@{/admin/order/detail/delivery/{id}(id=${userForm.id})}">
+                                                xữ lý
+                                                </a>
                                             </td>
                                         </tr>
                                         </tbody>
