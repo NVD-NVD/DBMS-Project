@@ -1,9 +1,6 @@
 package com.ute.dbms.webshop.controller;
 
-import com.ute.dbms.webshop.entity.Bill;
-import com.ute.dbms.webshop.entity.Detail;
-import com.ute.dbms.webshop.entity.Product;
-import com.ute.dbms.webshop.entity.User;
+import com.ute.dbms.webshop.entity.*;
 import com.ute.dbms.webshop.model.*;
 import com.ute.dbms.webshop.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -170,20 +167,20 @@ public class AdminController {
         model.addAttribute("sum",sum);
         return "admin-doanhthu";
     }
-//    @GetMapping("/nhanvien")
-//    public String nhanvien(Model model){
-//        List<User> list = userRepository.findAll();
-//        for (User user : list) {
-//            for (Role role : user.getRoles()) {
-//                System.out.println(role);
-//                if(role.equals("ROLE_STAFF"))
-//                    list.remove(user);
-//            }
-//        }
-//        model.addAttribute("accounts", list);
-//
-//        return "/admin-nv";
-//    }
+    @GetMapping("/employee")
+    public String nhanvien(Model model){
+        List<User> list = userRepository.findAll();
+        for (User user : list) {
+            for (Role role : user.getRoles()) {
+                System.out.println(role);
+                if(role.equals("ROLE_STAFF"))
+                    list.remove(user);
+            }
+        }
+        model.addAttribute("accounts", list);
+
+        return "/admin-nv";
+    }
 //    @GetMapping("/nhanvien/add")
 //    public String ThemNhanVien(HttpServletRequest request, Model model){
 //        if(request.isUserInRole("ADMIN")){
